@@ -1,0 +1,17 @@
+CREATE TABLE Peliculas(
+    id VARCHAR2(20),
+    id_biblioteca VARCHAR2(20),
+    director VARCHAR2(20),
+    fecha DATE,
+    productora VARCHAR2(20),
+    precioCompra NUMBER(6),
+    precioRenta NUMBER(6),
+    NCompras NUMBER(11),
+    NRentas NUMBER(11),
+    duracion VARCHAR2(6),
+    distribuidor VARCHAR2(20)
+);
+
+CREATE TABLE Series(
+    
+);
