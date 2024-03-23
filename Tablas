@@ -1,6 +1,6 @@
 CREATE TABLE Peliculas(
     id VARCHAR2(20),
-    id_biblioteca VARCHAR2(20),
+    idBiblioteca VARCHAR2(20),
     director VARCHAR2(20),
     fecha DATE,
     productora VARCHAR2(20),
@@ -13,5 +13,41 @@ CREATE TABLE Peliculas(
 );
 
 CREATE TABLE Series(
-    
+    id VARCHAR2(20),
+    idBiblioteca VARCHAR2(20),
+    director VARCHAR2(20),
+    fecha DATE,
+    productora VARCHAR2(20),
+    precioCompra NUMBER(6),
+    precioRenta NUMBER(6),
+    NCompras NUMBER(11),
+    NRentas NUMBER(11),
+    duracion VARCHAR2(6),
+    distribuidor VARCHAR2(20)
+);
+
+CREATE TABLE Temporadas(
+    idSerie VARCHAR2(20),  
+    numeroTemporada NUMBER(2)
+);
+
+CREATE TABLE Episodios(
+    idSerie VARCHAR2(20),
+    temporada NUMBER(2),
+    nombreEpisodio VARCHAR2(2),   
+    numero NUMBER(2),   
+    duracion VARCHAR(6)
+);
+
+CREATE TABLE Versiones(
+    id VARCHAR2(20),
+    nombre VARCHAR2(20),  
+    descripcion VARCHAR2(100)
+    categoria VARCHAR2(20),
+    idioma VARCHAR2(20)
+);
+
+CREATE TABLE Distribuidores(
+    nombre VARCHAR2(20),   
+    fechaAsociacion DATE
 );
