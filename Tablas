@@ -39,8 +39,16 @@ CREATE TABLE Episodios(
     duracion VARCHAR(6)
 );
 
-CREATE TABLE Versiones(
-    id VARCHAR2(20),
+CREATE TABLE VersionesPelicula(
+    idPelicula VARCHAR2(20),
+    nombre VARCHAR2(20),  
+    descripcion VARCHAR2(100)
+    categoria VARCHAR2(20),
+    idioma VARCHAR2(20)
+);
+
+CREATE TABLE VersionesSerie(
+    idSerie VARCHAR2(20),
     nombre VARCHAR2(20),  
     descripcion VARCHAR2(100)
     categoria VARCHAR2(20),
@@ -50,4 +58,53 @@ CREATE TABLE Versiones(
 CREATE TABLE Distribuidores(
     nombre VARCHAR2(20),   
     fechaAsociacion DATE
+);
+
+CREATE TABLE ContenidoAdicional(
+    idContenido VARCHAR2(20),
+    nombre VARCHAR2(20),
+    precioCompra NUMBER(6),
+    precioRental NUMBER(6)
+);
+
+CREATE TABLE ContenidoAdicionalPeliculas(
+    idContenido VARCHAR2(20),
+    idPelicula VARCHAR2(20)
+);
+
+CREATE TABLE ContenidoAdicionalSeries(
+    idContenido VARCHAR2(20),
+    idSerie VARCHAR2(20)
+);
+
+CREATE TABLE ActoresPelicula(
+    idPelicula VARCHAR2(20),
+    actor VARCHAR2(20)
+);
+
+CREATE TABLE ActoresSerie(
+    idSerie VARCHAR2(20),
+    actor VARCHAR2(20)
+);
+
+CREATE TABLE Bibliotecas(
+    id VARCHAR2(20),
+    nombre VARCHAR2(100),
+    fechaCreacion DATE
+);
+
+CREATE TABLE Cuentas(
+    id VARCHAR2(20),
+    nombre VARCHAR2(20),
+    correo VARCHAR2(100),
+    telefono NUMBER(11),
+    fechaCreacion DATE
+);
+
+CREATE TABLE Perfiles(
+    idCuenta VARCHAR2(20)
+    nombre VARCHAR2(20),
+    actividad VARCHAR2(2),
+    idBiblioteca VARCHAR2(20),
+    sincronizaPerfil VARCHAR2(20)
 );
