@@ -1,11 +1,7 @@
 ## Estructura y Restricciones Declarativas
 
 ### Tablas:
-A partir del modelo logico de nuestra idea de negocio se crearon las tablas:
-- Peliculas
-- Series
-- Temporadas
-- Episodios
+Creacion de tablas con base a nuestra idea de negocio
 
 ### Atributos:
 Definicion de restricciones para un unico atributo
@@ -24,3 +20,13 @@ Elimina todas las tablas creadas con anterioridad
 
 ### Consultas:
 Consultas propuestas en SQL para verificar la integridad de la tabla
+
+## Restricciones Declarativas, Procedimentales y Automatización:
+
+### Tuplas:
+
+### Acciones:
+
+### Disparadores:
+
+### xDisparadores
