@@ -67,6 +67,11 @@ INSERT INTO Rentas (idRenta, idCuenta, idProducto, dias, fechaRenta, fechaExpira
 INSERT INTO Rentas (idRenta, idCuenta, idProducto, dias, fechaRenta, fechaExpiracion) VALUES ('700000000000000002', '400000000000000002', '300000000000000002', 30, TO_DATE('24/03/2022', 'DD/MM/YYYY'), TO_DATE('24/05/2022', 'DD/MM/YYYY'));
 INSERT INTO Rentas (idRenta, idCuenta, idProducto, dias, fechaRenta, fechaExpiracion) VALUES ('700000000000000003', '400000000000000003', '300000000000000003', 30, TO_DATE('24/03/2022', 'DD/MM/YYYY'), TO_DATE('24/05/2022', 'DD/MM/YYYY'));
 
+INSERT INTO CodigosDeRegalo (codigo, idProducto, idCuenta, estado, tipo) VALUES (800000000000000001, 100000000000000000, 400000000000000001, 'N', 'P');
+INSERT INTO CodigosDeRegalo (codigo, idProducto, idCuenta, estado, tipo) VALUES (800000000000000002, 200000000000000000, 400000000000000002, 'N', 'P');
+INSERT INTO CodigosDeRegalo (codigo, idProducto, idCuenta, estado, tipo) VALUES (800000000000000003, 300000000000000000, 400000000000000003, 'U', 'S');
+
+
 
 
 
