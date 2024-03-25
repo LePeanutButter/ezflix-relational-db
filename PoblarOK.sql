@@ -2,7 +2,7 @@ INSERT INTO Peliculas (id,  director, fecha, productora, precioCompra, precioRen
 INSERT INTO Peliculas (id,  director, fecha, productora, precioCompra, precioRenta, duracion, distriubuidor) VALUES (200000000000000000, 'Elmo', TO_DATE('24/03/2022', 'DD/MM/YYYY'), 'Hintz, Watsic', 2000, 2000, '1:52:02', 'Lindgren-Spinka');
 INSERT INTO Peliculas (id,  director, fecha, productora, precioCompra, precioRenta, duracion, distriubuidor) VALUES (300000000000000000, 'Ava', TO_DATE('24/03/2021', 'DD/MM/YYYY'), 'Schmidt, Kreiger', 3000, 3000, '1:52:02', 'Bergnaum-Schimmel');
 
-INSERT INTO Series (id,  director, fecha, productora, precioCompra, precioRenta, distribuidor) VALUES (300000000000000001, 'Wolfgang', TO_DATE('24/03/2023', 'DD/MM/YYYY'), 'Hoeger, Gerhold and Quitzon', 1000, 1000, 'Gibson and Sons');
+INSERT INTO Series (id,  director, fecha, productora, precioCompra, precioRenta, distribuidor) VALUES (300000000000000001, 'Wolfgang', 'Boyle Group', 'Hoeger, Gerhold and Quitzon', 1000, 1000, 'Gibson and Sons');
 INSERT INTO Series (id,  director, fecha, productora, precioCompra, precioRenta, distribuidor) VALUES (300000000000000002, 'Anya', TO_DATE('24/03/2023', 'DD/MM/YYYY'), 'Pfannerstill LLC', 2000, 2000, 'Quitzon, Stamm and Greenfelder');
 INSERT INTO Series (id,  director, fecha, productora, precioCompra, precioRenta, distribuidor) VALUES (300000000000000003, 'Dena', TO_DATE('24/03/2023', 'DD/MM/YYYY'), 'Macejkovic and Sons', 3000, 3000, 'Boyle Group');
 
@@ -20,3 +20,20 @@ INSERT INTO Versiones (idProducto, nombre, descripcion, categoria, idioma) VALUE
 INSERT INTO Versiones (idProducto, nombre, descripcion, categoria, idioma) VALUES (300000000000000001, 'Spawn', 'sit amet turpis elementum ligula vehicula consequat morbi a ipsum', 'Suspenso', '40:20:02');
 INSERT INTO Versiones (idProducto, nombre, descripcion, categoria, idioma) VALUES (300000000000000002, 'Head Over Heels (De Pernas pro Ar)', 'quam pharetra magna ac consequat', 'Suspenso', '40:20:02');
 INSERT INTO Versiones (idProducto, nombre, descripcion, categoria, idioma) VALUES (300000000000000003, 'Last Mimzy, The', 'ullamcorper augue a suscipit nulla', 'Ciencia Ficción', '40:20:02');
+
+INSERT INTO Distribuidores (nombre, fechaAsociacion) VALUES ('Bartell, Kiehn and Rath', TO_DATE('24/03/2020', 'DD/MM/YYYY'));
+INSERT INTO Distribuidores (nombre, fechaAsociacion) VALUES ('Lindgren-Spinka', TO_DATE('24/03/2020', 'DD/MM/YYYY'));
+INSERT INTO Distribuidores (nombre, fechaAsociacion) VALUES ('Bergnaum-Schimmel', TO_DATE('24/03/2020', 'DD/MM/YYYY'));
+INSERT INTO Distribuidores (nombre, fechaAsociacion) VALUES ('Gibson and Sons', TO_DATE('24/03/2020', 'DD/MM/YYYY'));
+INSERT INTO Distribuidores (nombre, fechaAsociacion) VALUES ('Quitzon, Stamm and Greenfelder', TO_DATE('24/03/2020', 'DD/MM/YYYY'));
+INSERT INTO Distribuidores (nombre, fechaAsociacion) VALUES ('Boyle Group', TO_DATE('24/03/2020', 'DD/MM/YYYY'));
+
+
+INSERT INTO ContenidoAdicional (idContenido, idProducto, nombre, precioCompra, precioRenta) VALUES (100000000000000004, 110000000000000000, 'Doughboys', 1000, 1000);
+INSERT INTO ContenidoAdicional (idContenido, idProducto, nombre, precioCompra, precioRenta) VALUES (100000000000000005, 220000000000000000, 'The Last Diamond', 2000, 2000);
+INSERT INTO ContenidoAdicional (idContenido, idProducto, nombre, precioCompra, precioRenta) VALUES (100000000000000006, 320000000000000000, 'All Things to All Men', 3000, 3000);
+
+INSERT INTO ActoresPeliculas (idPelicula, actor) VALUES (100000000000000000, 'Lennie');
+INSERT INTO ActoresPeliculas (idPelicula, actor) VALUES (200000000000000000, 'Brannon');
+INSERT INTO ActoresPeliculas (idPelicula, actor) VALUES (300000000000000000, 'Gregoire');
+
