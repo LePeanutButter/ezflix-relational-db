@@ -51,13 +51,22 @@ INSERT INTO  BibliotecasPeliculas (idBiblioteca, idPelicula) VALUES (50000000000
 
 INSERT INTO BibliotecasSeries (idBiblioteca, idSerie) VALUES (500000000000000003, 300000000000000001);
 
-INSERT INTO Cuentas (id, nombre, correo, telefono, fechaCreacion) VALUES (400000000000000001, 'Sindee', 'scawthera0@foxnews.com', '+573115524679', 1);
-INSERT INTO Cuentas (id, nombre, correo, telefono, fechaCreacion) VALUES (400000000000000002, 'Moselle', 'maizikovitz1@disqus.com', '+573215526679', 2);
-INSERT INTO Cuentas (id, nombre, correo, telefono, fechaCreacion) VALUES (400000000000000003, 'Jilli', 'jlaffoleylane2@delicious.com', '+573155334679', 3);
+INSERT INTO Cuentas (id, nombre, correo, telefono, fechaCreacion) VALUES (400000000000000001, 'Sindee', 'scawthera0@foxnews.com', '+573115524679', TO_DATE('24/03/2022', 'DD/MM/YYYY'));
+INSERT INTO Cuentas (id, nombre, correo, telefono, fechaCreacion) VALUES (400000000000000002, 'Moselle', 'maizikovitz1@disqus.com', '+573215526679', TO_DATE('24/03/2022', 'DD/MM/YYYY'));
+INSERT INTO Cuentas (id, nombre, correo, telefono, fechaCreacion) VALUES (400000000000000003, 'Jilli', 'jlaffoleylane2@delicious.com', '+573155334679', TO_DATE('24/03/2022', 'DD/MM/YYYY'));
 
 INSERT INTO Perfiles (idCuenta, nombre, actividad) VALUES (400000000000000001, 'Myrtle', 'A');
 INSERT INTO Perfiles (idCuenta, nombre, actividad) VALUES (400000000000000002, 'Klarika', 'N');
 INSERT INTO Perfiles (idCuenta, nombre, actividad) VALUES (400000000000000003, 'Nicoline', 'N');
+
+INSERT INTO  Compras (idCompra, idCuenta, idProducto, fechaCompra) VALUES (600000000000000001, 400000000000000001, 100000000000000000, TO_DATE('25/03/2022', 'DD/MM/YYYY'));
+INSERT INTO Compras (idCompra, idCuenta, idProducto, fechaCompra) VALUES (600000000000000002, 400000000000000002, 200000000000000000, TO_DATE('24/03/2022', 'DD/MM/YYYY'));
+INSERT INTO  Compras (idCompra, idCuenta, idProducto, fechaCompra) VALUES (600000000000000003, 400000000000000003, 300000000000000000, TO_DATE('24/03/2022', 'DD/MM/YYYY'));
+
+INSERT INTO Rentas (idRenta, idCuenta, idProducto, dias, fechaRenta, fechaExpiracion) VALUES (700000000000000001, 400000000000000001, 300000000000000001, 30, TO_DATE('25/03/2022', 'DD/MM/YYYY'), TO_DATE('25/04/2022', 'DD/MM/YYYY'));
+INSERT INTO Rentas (idRenta, idCuenta, idProducto, dias, fechaRenta, fechaExpiracion) VALUES (700000000000000002, 400000000000000002, 300000000000000002, 30, TO_DATE('24/03/2022', 'DD/MM/YYYY'), TO_DATE('24/05/2022', 'DD/MM/YYYY'));
+INSERT INTO Rentas (idRenta, idCuenta, idProducto, dias, fechaRenta, fechaExpiracion) VALUES (700000000000000003, 400000000000000003, 300000000000000003, 30, TO_DATE('24/03/2022', 'DD/MM/YYYY'), TO_DATE('24/05/2022', 'DD/MM/YYYY'));
+
 
 
 
