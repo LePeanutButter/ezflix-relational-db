@@ -1,1 +1,3 @@
-
+INSERT INTO Peliculas (id,  director, fecha, productora, precioCompra, precioRenta, duracion, distriubuidor) VALUES (1, 'Boris', '7/21/2023', 'Kertzmann-Kub', 1000, 1000, '1:52:02', 'Bartell, Kiehn and Rath');
+INSERT INTO Peliculas (id,  director, fecha, productora, precioCompra, precioRenta, duracion, distriubuidor) VALUES (2, 'Elmo', '12/29/2023', 'Hintz, Watsica and O''Keefe', 2000, 2000, '1:52:02', 'Lindgren-Spinka');
+INSERT INTO Peliculas (id,  director, fecha, productora, precioCompra, precioRenta, duracion, distriubuidor) VALUES (3, 'Ava', '6/11/2023', 'Schmidt, Kreiger and Stoltenberg', 3000, 3000, '1:52:02', 'Bergnaum-Schimmel');
