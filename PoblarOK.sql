@@ -37,3 +37,11 @@ INSERT INTO ActoresPeliculas (idPelicula, actor) VALUES (100000000000000000, 'Le
 INSERT INTO ActoresPeliculas (idPelicula, actor) VALUES (200000000000000000, 'Brannon');
 INSERT INTO ActoresPeliculas (idPelicula, actor) VALUES (300000000000000000, 'Gregoire');
 
+INSERT INTO ActoresSeries (idSerie, actor) VALUES (300000000000000000, 'Brooke');
+INSERT INTO ActoresSeries (idSerie, actor) VALUES (600000000000000000, 'Marrilee');
+INSERT INTO ActoresSeries (idSerie, actor) VALUES (900000000000000000, 'Tammi');
+
+INSERT INTO Bibliotecas (idCuenta, nombrePerfil, id, nombre, fechaCreacion) VALUES (400000000000000001, 'Charmine', 500000000000000001, 'TOPIRAMATE', TO_DATE('24/03/2013', 'DD/MM/YYYY'));
+INSERT INTO Bibliotecas (idCuenta, nombrePerfil, id, nombre, fechaCreacion) VALUES (400000000000000002, 'Sheff', 500000000000000002, 'propolis', TO_DATE('24/03/2013', 'DD/MM/YYYY'));
+INSERT INTO Bibliotecas (idCuenta, nombrePerfil, id, nombre, fechaCreacion) VALUES (400000000000000003, 'Winna', 500000000000000003, 'Hydrochlorothiazide', TO_DATE('24/03/2013', 'DD/MM/YYYY'));
+
