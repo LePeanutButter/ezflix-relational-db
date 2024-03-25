@@ -45,3 +45,23 @@ INSERT INTO Bibliotecas (idCuenta, nombrePerfil, id, nombre, fechaCreacion) VALU
 INSERT INTO Bibliotecas (idCuenta, nombrePerfil, id, nombre, fechaCreacion) VALUES (400000000000000002, 'Sheff', 500000000000000002, 'propolis', TO_DATE('24/03/2013', 'DD/MM/YYYY'));
 INSERT INTO Bibliotecas (idCuenta, nombrePerfil, id, nombre, fechaCreacion) VALUES (400000000000000003, 'Winna', 500000000000000003, 'Hydrochlorothiazide', TO_DATE('24/03/2013', 'DD/MM/YYYY'));
 
+INSERT INTO  BibliotecasPeliculas (idBiblioteca, idPelicula) VALUES (500000000000000001, 100000000000000000);
+INSERT INTO  BibliotecasPeliculas (idBiblioteca, idPelicula) VALUES (500000000000000002, 200000000000000000);
+INSERT INTO  BibliotecasPeliculas (idBiblioteca, idPelicula) VALUES (500000000000000003, 300000000000000000);
+
+INSERT INTO BibliotecasSeries (idBiblioteca, idSerie) VALUES (500000000000000003, 300000000000000001);
+
+INSERT INTO Cuentas (id, nombre, correo, telefono, fechaCreacion) VALUES (400000000000000001, 'Sindee', 'scawthera0@foxnews.com', '+573115524679', 1);
+INSERT INTO Cuentas (id, nombre, correo, telefono, fechaCreacion) VALUES (400000000000000002, 'Moselle', 'maizikovitz1@disqus.com', '+573215526679', 2);
+INSERT INTO Cuentas (id, nombre, correo, telefono, fechaCreacion) VALUES (400000000000000003, 'Jilli', 'jlaffoleylane2@delicious.com', '+573155334679', 3);
+
+INSERT INTO Perfiles (idCuenta, nombre, actividad) VALUES (400000000000000001, 'Myrtle', 'A');
+INSERT INTO Perfiles (idCuenta, nombre, actividad) VALUES (400000000000000002, 'Klarika', 'N');
+INSERT INTO Perfiles (idCuenta, nombre, actividad) VALUES (400000000000000003, 'Nicoline', 'N');
+
+
+
+
+
+
+
