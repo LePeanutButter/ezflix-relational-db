@@ -67,9 +67,23 @@ INSERT INTO Rentas (idRenta, idCuenta, idProducto, dias, fechaRenta, fechaExpira
 INSERT INTO Rentas (idRenta, idCuenta, idProducto, dias, fechaRenta, fechaExpiracion) VALUES ('700000000000000002', '400000000000000002', '300000000000000002', 30, TO_DATE('24/03/2022', 'DD/MM/YYYY'), TO_DATE('24/05/2022', 'DD/MM/YYYY'));
 INSERT INTO Rentas (idRenta, idCuenta, idProducto, dias, fechaRenta, fechaExpiracion) VALUES ('700000000000000003', '400000000000000003', '300000000000000003', 30, TO_DATE('24/03/2022', 'DD/MM/YYYY'), TO_DATE('24/05/2022', 'DD/MM/YYYY'));
 
-INSERT INTO CodigosDeRegalo (codigo, idProducto, idCuenta, estado, tipo) VALUES (800000000000000001, 100000000000000000, 400000000000000001, 'N', 'P');
-INSERT INTO CodigosDeRegalo (codigo, idProducto, idCuenta, estado, tipo) VALUES (800000000000000002, 200000000000000000, 400000000000000002, 'N', 'P');
-INSERT INTO CodigosDeRegalo (codigo, idProducto, idCuenta, estado, tipo) VALUES (800000000000000003, 300000000000000000, 400000000000000003, 'U', 'S');
+INSERT INTO CodigosDeRegalo (codigo, idProducto, idCuenta, estado, tipo) VALUES ('800000000000000001', '100000000000000000', '400000000000000001', 'N', 'P');
+INSERT INTO CodigosDeRegalo (codigo, idProducto, idCuenta, estado, tipo) VALUES ('800000000000000002', '200000000000000000', '400000000000000002', 'N', 'P');
+INSERT INTO CodigosDeRegalo (codigo, idProducto, idCuenta, estado, tipo) VALUES ('800000000000000003', '300000000000000000', '400000000000000003', 'U', 'S');
+
+INSERT INTO MetodosDePago (idCuenta, numero, cvv, fechaExpiracion) VALUES ('400000000000000001', '5893414540406453', '100', TO_DATE('25/03/2028', 'DD/MM/YYYY'));
+INSERT INTO MetodosDePago (idCuenta, numero, cvv, fechaExpiracion) VALUES ('400000000000000002', '3537605219871250', '200', TO_DATE('25/03/2028', 'DD/MM/YYYY'));
+INSERT INTO MetodosDePago (idCuenta, numero, cvv, fechaExpiracion) VALUES ('400000000000000003', '3579093062740006', '300', TO_DATE('25/03/2028', 'DD/MM/YYYY'));
+
+INSERT INTO GroupWatch (idGroupWatch, idCuenta, perfil, perfilSincronizado) VALUES ('900000000000000001', '400000000000000001', 'Olivero', 'Ludovika');
+INSERT INTO GroupWatch (idGroupWatch, idCuenta, perfil, perfilSincronizado) VALUES ('900000000000000002', '400000000000000002', 'Westley', 'Maritsa');
+INSERT INTO GroupWatch (idGroupWatch, idCuenta, perfil, perfilSincronizado) VALUES ('900000000000000003', '400000000000000003', 'Ferdy', 'Mead');
+
+INSERT INTO GroupWatchPeliculas (idGroupWatch, idPelicula) VALUES ('900000000000000002', '200000000000000000');
+INSERT INTO GroupWatchPeliculas (idGroupWatch, idPelicula) VALUES ('900000000000000003', '300000000000000000');
+
+INSERT INTO GroupWatchSeries (idGroupWatch, idSerie) VALUES ('900000000000000001', '300000000000000001');
+
 
 
 
