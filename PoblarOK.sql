@@ -6,4 +6,17 @@ INSERT INTO Series (id,  director, fecha, productora, precioCompra, precioRenta,
 INSERT INTO Series (id,  director, fecha, productora, precioCompra, precioRenta, distribuidor) VALUES (300000000000000002, 'Anya', TO_DATE('24/03/2023', 'DD/MM/YYYY'), 'Pfannerstill LLC', 2000, 2000, 'Quitzon, Stamm and Greenfelder');
 INSERT INTO Series (id,  director, fecha, productora, precioCompra, precioRenta, distribuidor) VALUES (300000000000000003, 'Dena', TO_DATE('24/03/2023', 'DD/MM/YYYY'), 'Macejkovic and Sons', 3000, 3000, 'Boyle Group');
 
+INSERT INTO Temporada (id, numeroTemporada) VALUES (300000000000000001, 1);
+INSERT INTO Temporada (id, numeroTemporada) VALUES (300000000000000002, 2);
+INSERT INTO Temporada (id, numeroTemporada) VALUES (300000000000000003, 3);
 
+INSERT INTO Temporada (id, numeroTemporada, nombreEpisodio, numeroEpisodio, duracion) VALUES (300000000000000001, 1, 'Asoka', 1, '40:20:02');
+INSERT INTO Temporada (id, numeroTemporada, nombreEpisodio, numeroEpisodio, duracion) VALUES (300000000000000002, 2, 'Andalax', 2, '40:20:02');
+INSERT INTO Temporada (id, numeroTemporada, nombreEpisodio, numeroEpisodio, duracion) VALUES (300000000000000003, 3, 'Bytecard', 3, '40:20:02');
+
+INSERT INTO Versiones (idProducto, nombre, descripcion, categoria, idioma) VALUES (300000000000000000, 'Return to Me', 'ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam', 'Musical', '40:20:02');
+INSERT INTO Versiones (idProducto, nombre, descripcion, categoria, idioma) VALUES (200000000000000000, 'Home Movie', 'in quam fringilla rhoncus mauris enim', 'Acción', '40:20:02');
+INSERT INTO Versiones (idProducto, nombre, descripcion, categoria, idioma) VALUES (300000000000000000, 'Crocodile Dundee II', 'in libero ut massa volutpat convallis morbi', 'Fantasía', '40:20:02');
+INSERT INTO Versiones (idProducto, nombre, descripcion, categoria, idioma) VALUES (300000000000000001, 'Spawn', 'sit amet turpis elementum ligula vehicula consequat morbi a ipsum', 'Suspenso', '40:20:02');
+INSERT INTO Versiones (idProducto, nombre, descripcion, categoria, idioma) VALUES (300000000000000002, 'Head Over Heels (De Pernas pro Ar)', 'quam pharetra magna ac consequat', 'Suspenso', '40:20:02');
+INSERT INTO Versiones (idProducto, nombre, descripcion, categoria, idioma) VALUES (300000000000000003, 'Last Mimzy, The', 'ullamcorper augue a suscipit nulla', 'Ciencia Ficción', '40:20:02');
