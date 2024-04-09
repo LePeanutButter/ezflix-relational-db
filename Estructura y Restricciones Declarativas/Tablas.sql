@@ -26,14 +26,16 @@ CREATE TABLE Temporadas(
 
 CREATE TABLE Episodios(
     idSerie CHAR(20) NOT NULL,
-    temporada NUMBER(2) NOT NULL,
+    numeroTemporada NUMBER(2) NOT NULL,
     nombreEpisodio VARCHAR2(20) NOT NULL,   
     numeroEpisodio NUMBER(2) NOT NULL,
     duracion VARCHAR2(6) NOT NULL
 );
 
 CREATE TABLE Versiones(
-    idProducto CHAR(20) NOT NULL,
+    idVersion CHAR(20) NOT NULL,
+    idPelicula CHAR(20),
+    idSerie CHAR(20),
     nombre VARCHAR2(20) NOT NULL,  
     descripcion VARCHAR2(100) NOT NULL,
     categoria VARCHAR2(20) NOT NULL,
@@ -48,24 +50,25 @@ CREATE TABLE Distribuidores(
 
 CREATE TABLE ContenidoAdicional(
     idContenido CHAR(20) NOT NULL,
-    idProducto CHAR(20) NOT NULL,
+    idPelicula CHAR(20),
+    idSerie CHAR(20),
     nombre VARCHAR2(20) NOT NULL
 );
 
 CREATE TABLE ActoresPeliculas(
     idPelicula CHAR(20) NOT NULL,
-    actor VARCHAR2(20) NOT NULL
+    nombre VARCHAR2(20) NOT NULL
 );
 
 CREATE TABLE ActoresSeries(
     idSerie CHAR(20) NOT NULL,
-    actor VARCHAR2(20) NOT NULL
+    nombre VARCHAR2(20) NOT NULL
 );
 
 CREATE TABLE Bibliotecas(
     idCuenta CHAR(20) NOT NULL,
     nombrePerfil VARCHAR2(20) NOT NULL,
-    id CHAR(20) NOT NULL,
+    idBiblioteca CHAR(20) NOT NULL,
     nombre VARCHAR2(100) NOT NULL,
     fechaCreacion DATE NOT NULL
 );
@@ -95,16 +98,16 @@ CREATE TABLE Perfiles(
 );
 
 CREATE TABLE Compras(
-    idCompra CHAR(20) NOT NULL,
     idCuenta CHAR(20) NOT NULL,
-    idProducto CHAR(20) NOT NULL,
+    idPelicula CHAR(20),
+    idSerie CHAR(20),
     fechaCompra DATE NOT NULL
 );
 
 CREATE TABLE Rentas(
-    idRenta CHAR(20) NOT NULL,
     idCuenta CHAR(20) NOT NULL,
-    idProducto CHAR(20) NOT NULL,
+    idPelicula CHAR(20),
+    idSerie CHAR(20),
     dias NUMBER(3) NOT NULL,
     fechaRenta DATE NOT NULL,
     fechaExpiracion DATE NOT NULL
@@ -112,8 +115,9 @@ CREATE TABLE Rentas(
 
 CREATE TABLE CodigosDeRegalo(
     codigo CHAR(20) NOT NULL,
-    idProducto CHAR(20) NOT NULL,
-    idCuenta CHAR(20) NOT NULL
+    idCuenta CHAR(20) NOT NULL,
+    idPelicula CHAR(20),
+    idSerie CHAR(20)
 );
 
 CREATE TABLE MetodosDePago(
@@ -127,7 +131,7 @@ CREATE TABLE GroupWatch(
     idGroupWatch CHAR(20) NOT NULL,
     idCuenta CHAR(20) NOT NULL,
     perfil VARCHAR2(20) NOT NULL,
-    perfilSincronizado VARCHAR2(20) NOT NULL
+    perfilSincronizado VARCHAR2(20)
 );
 
 CREATE TABLE GroupWatchPeliculas(

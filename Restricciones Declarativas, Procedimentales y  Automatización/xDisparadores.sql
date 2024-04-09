@@ -1,0 +1,1 @@
+DROP TRIGGER TG_Peliculas_idPelicula;

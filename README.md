@@ -24,9 +24,13 @@ Consultas propuestas en SQL para verificar la integridad de la tabla
 ## Restricciones Declarativas, Procedimentales y Automatización:
 
 ### Tuplas:
+Definición de las restricciones que implican más de un atributo
 
 ### Acciones:
+Definición de las acciones de referencia
 
 ### Disparadores:
+Definición de disparadores
 
-### xDisparadores
+### xDisparadores:
+Eliminación de disparadores
