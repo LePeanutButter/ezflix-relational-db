@@ -1,7 +1,6 @@
 ALTER TABLE Peliculas ADD CONSTRAINT PK_Peliculas_id PRIMARY KEY (id);
 ALTER TABLE Series ADD CONSTRAINT PK_Series_id PRIMARY KEY(id);
-ALTER TABLE Temporadas ADD CONSTRAINT PK_Temporadas PRIMARY KEY (idSerie, numeroTemporada);
-ALTER TABLE Episodios ADD CONSTRAINT PK_Episodios_numeroEpisodio PRIMARY KEY (idSerie, numeroTemporada, numeroEpisodio);
+ALTER TABLE Episodios ADD CONSTRAINT PK_Episodios_numeroEpisodio PRIMARY KEY (idSerie);
 ALTER TABLE Versiones ADD CONSTRAINT PK_Versiones_idProducto PRIMARY KEY (idVersion);
 ALTER TABLE Distribuidores ADD CONSTRAINT PK_Distribuidores_nombre PRIMARY KEY (nombre);
 ALTER TABLE ContenidoAdicional ADD CONSTRAINT PK_ContenidoAdicional_idContenido PRIMARY KEY(idContenido);
@@ -14,8 +13,4 @@ ALTER TABLE Cuentas ADD CONSTRAINT PK_Cuentas_id PRIMARY KEY (id);
 ALTER TABLE Perfiles ADD CONSTRAINT PK_Perfiles PRIMARY KEY (nombre);
 ALTER TABLE Compras ADD CONSTRAINT PK_Compras PRIMARY KEY (idCuenta, fechaCompra);
 ALTER TABLE Rentas ADD CONSTRAINT PK_Rentas PRIMARY KEY (idCuenta, fechaRenta);
-ALTER TABLE CodigosDeRegalo ADD CONSTRAINT PK_CodigoDeRegalo_codigo PRIMARY KEY (idCuenta, codigo);
 ALTER TABLE MetodosDePago ADD CONSTRAINT PK_MetodosDePago_numero PRIMARY KEY (numero);
-ALTER TABLE GroupWatch ADD CONSTRAINT PK_GroupWatch_id PRIMARY KEY (idGroupWatch);
-ALTER TABLE GroupWatchPeliculas ADD CONSTRAINT PK_GroupWatchPeliculas PRIMARY KEY (idGroupWatch, idPelicula);
-ALTER TABLE GroupWatchSeries ADD CONSTRAINT PK_GroupWatchSeries PRIMARY KEY (idGroupWatch, idSerie);

@@ -1,6 +1,5 @@
 DROP TABLE Peliculas;
 DROP TABLE Series;
-DROP TABLE Temporadas;
 DROP TABLE Episodios;
 DROP TABLE Versiones;
 DROP TABLE Distribuidores;
@@ -14,8 +13,4 @@ DROP TABLE Cuentas;
 DROP TABLE Perfiles;
 DROP TABLE Compras;
 DROP TABLE Rentas;
-DROP TABLE CodigosDeRegalo;
 DROP TABLE MetodosDePago;
-DROP TABLE GroupWatch;
-DROP TABLE GroupWatchPeliculas;
-DROP TABLE GroupWatchSeries;

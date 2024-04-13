@@ -1,7 +1,6 @@
 ALTER TABLE Peliculas ADD CONSTRAINT FK_Peliculas_distribuidor FOREIGN KEY (distribuidor) REFERENCES Distribuidores(nombre);
 ALTER TABLE Series ADD CONSTRAINT FK_Series_distribuidor FOREIGN KEY (distribuidor) REFERENCES Distribuidores(nombre);
-ALTER TABLE Temporadas ADD CONSTRAINT FK_Temporadas_idSerie FOREIGN KEY (idSerie) REFERENCES Series(id);
-ALTER TABLE Episodios ADD CONSTRAINT FK_Episodios FOREIGN KEY (idSerie, numeroTemporada) REFERENCES Temporadas(idSerie, numeroTemporada);
+ALTER TABLE Episodios ADD CONSTRAINT FK_Episodios_idSerie FOREIGN KEY (idSerie) REFERENCES Series(id);
 ALTER TABLE Versiones ADD CONSTRAINT FK_Versiones_idPelicula FOREIGN KEY (idPelicula) REFERENCES Peliculas(id);
 ALTER TABLE Versiones ADD CONSTRAINT FK_Versiones_idSeries FOREIGN KEY (idSerie) REFERENCES Series(id);
 ALTER TABLE ContenidoAdicional ADD CONSTRAINT FK_ContenidoAdicional_idPelicula FOREIGN KEY (idPelicula) REFERENCES Peliculas(id);
@@ -20,12 +19,4 @@ ALTER TABLE Compras ADD CONSTRAINT FK_Compras_idSerie FOREIGN KEY (idSerie) REFE
 ALTER TABLE Rentas ADD CONSTRAINT FK_Rentas_idCuenta FOREIGN KEY (idCuenta) REFERENCES Cuentas(id);
 ALTER TABLE Rentas ADD CONSTRAINT FK_Rentas_idPelicula FOREIGN KEY (idPelicula) REFERENCES Peliculas(idPelicula);
 ALTER TABLE Rentas ADD CONSTRAINT FK_Rentas_idSerie FOREIGN KEY (idSerie) REFERENCES Series(idSerie);
-ALTER TABLE CodigosDeRegalo ADD CONSTRAINT FK_CodigosDeRegalo_idCuenta FOREIGN KEY (idCuenta) REFERENCES Cuentas(id);
-ALTER TABLE CodigosDeRegalo ADD CONSTRAINT FK_CodigosDeRegalo_idPelicula FOREIGN KEY (idPelicula) REFERENCES Peliculas(idPelicula);
-ALTER TABLE CodigosDeRegalo ADD CONSTRAINT FK_CodigosDeRegalo_idSerie FOREIGN KEY (idSerie) REFERENCES Series(idSerie);
 ALTER TABLE MetodosDePago ADD CONSTRAINT FK_MetodosDePago_idCuenta FOREIGN KEY (idCuenta) REFERENCES Cuentas(id);
-ALTER TABLE GroupWatch ADD CONSTRAINT FK_GroupWatch FOREIGN KEY (perfil, perfilSincronizado) REFERENCES Perfiles(nombre, nombre);
-ALTER TABLE GroupWatchPeliculas ADD CONSTRAINT FK_GroupWatchPeliculas_idGroupWatch FOREIGN KEY (idGroupWatch) REFERENCES GroupWatch(idGroupWatch);
-ALTER TABLE GroupWatchPeliculas ADD CONSTRAINT FK_GroupWatchPeliculas_idPelicula FOREIGN KEY (idPeliculas) REFERENCES Peliculas(id);
-ALTER TABLE GroupWatchSeries ADD CONSTRAINT FK_GroupWatchSeries_idGroupWatch FOREIGN KEY (idGroupWatch) REFERENCES GroupWatch(idGroupWatch);
-ALTER TABLE GroupWatchSeries ADD CONSTRAINT FK_GroupWatchSeries_idSerie FOREIGN KEY (idSerie) REFERENCES Series(id);

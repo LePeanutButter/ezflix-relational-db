@@ -5,7 +5,7 @@ CREATE TABLE Peliculas(
     productora VARCHAR2(20) NOT NULL,
     precioCompra NUMBER(6) NOT NULL,
     precioRenta NUMBER(6) NOT NULL,
-    duracion VARCHAR2(6) NOT NULL,
+    duracion VARCHAR2(8) NOT NULL,
     distribuidor VARCHAR2(20) NOT NULL
 );
 
@@ -19,17 +19,12 @@ CREATE TABLE Series(
     distribuidor VARCHAR2(20) NOT NULL
 );
 
-CREATE TABLE Temporadas(
-    idSerie CHAR(20) NOT NULL,
-    numeroTemporada NUMBER(2) NOT NULL
-);
-
 CREATE TABLE Episodios(
     idSerie CHAR(20) NOT NULL,
     numeroTemporada NUMBER(2) NOT NULL,
     nombreEpisodio VARCHAR2(20) NOT NULL,   
     numeroEpisodio NUMBER(2) NOT NULL,
-    duracion VARCHAR2(6) NOT NULL
+    duracion VARCHAR2(8) NOT NULL
 );
 
 CREATE TABLE Versiones(
@@ -113,33 +108,10 @@ CREATE TABLE Rentas(
     fechaExpiracion DATE NOT NULL
 );
 
-CREATE TABLE CodigosDeRegalo(
-    codigo CHAR(20) NOT NULL,
-    idCuenta CHAR(20) NOT NULL,
-    idPelicula CHAR(20),
-    idSerie CHAR(20)
-);
 
 CREATE TABLE MetodosDePago(
     idCuenta CHAR(20) NOT NULL,
     numero VARCHAR2(16) NOT NULL,
     cvv NUMBER(3) NOT NULL,
     fechaExpiracion DATE NOT NULL
-);
-
-CREATE TABLE GroupWatch(
-    idGroupWatch CHAR(20) NOT NULL,
-    idCuenta CHAR(20) NOT NULL,
-    perfil VARCHAR2(20) NOT NULL,
-    perfilSincronizado VARCHAR2(20)
-);
-
-CREATE TABLE GroupWatchPeliculas(
-    idGroupWatch CHAR(20) NOT NULL,
-    idPelicula CHAR(20) NOT NULL
-);
-
-CREATE TABLE GroupWatchSeries(
-    idGroupWatch CHAR(20) NOT NULL,
-    idSerie CHAR(20) NOT NULL
 );
