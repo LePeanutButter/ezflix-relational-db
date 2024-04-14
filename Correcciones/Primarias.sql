@@ -1,1 +1,16 @@
-
+ALTER TABLE Peliculas ADD CONSTRAINT PK_Peliculas_id PRIMARY KEY (id);
+ALTER TABLE Series ADD CONSTRAINT PK_Series_id PRIMARY KEY(id);
+ALTER TABLE Episodios ADD CONSTRAINT PK_Episodios_numeroEpisodio PRIMARY KEY (idSerie);
+ALTER TABLE Versiones ADD CONSTRAINT PK_Versiones_idProducto PRIMARY KEY (idVersion);
+ALTER TABLE Distribuidores ADD CONSTRAINT PK_Distribuidores_nombre PRIMARY KEY (nombre);
+ALTER TABLE ContenidoAdicional ADD CONSTRAINT PK_ContenidoAdicional_idContenido PRIMARY KEY(idContenido);
+ALTER TABLE ActoresPeliculas ADD CONSTRAINT PK_ActoresPeliculas PRIMARY KEY (idPelicula, nombre);
+ALTER TABLE ActoresSeries ADD CONSTRAINT PK_ActoresSeries PRIMARY KEY (idSerie, nombre);
+ALTER TABLE Bibliotecas ADD CONSTRAINT PK_Bibliotecas_id PRIMARY KEY (idBiblioteca);
+ALTER TABLE BibliotecasPeliculas ADD CONSTRAINT PK_BibliotecasPeliculas PRIMARY KEY (idBiblioteca, idPelicula);
+ALTER TABLE BibliotecasSeries ADD CONSTRAINT PK_BibliotecasSeries PRIMARY KEY (idBiblioteca, idSerie);
+ALTER TABLE Cuentas ADD CONSTRAINT PK_Cuentas_id PRIMARY KEY (id);
+ALTER TABLE Perfiles ADD CONSTRAINT PK_Perfiles PRIMARY KEY (nombre, idCuenta);
+ALTER TABLE Compras ADD CONSTRAINT PK_Compras PRIMARY KEY (idCuenta, fechaCompra);
+ALTER TABLE Rentas ADD CONSTRAINT PK_Rentas PRIMARY KEY (idCuenta, fechaRenta);
+ALTER TABLE MetodosDePago ADD CONSTRAINT PK_MetodosDePago_numero PRIMARY KEY (numero);
