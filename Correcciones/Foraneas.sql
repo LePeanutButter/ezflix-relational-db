@@ -1,1 +1,23 @@
+ALTER TABLE Peliculas ADD CONSTRAINT FK_Peliculas_distribuidor FOREIGN KEY (distribuidor) REFERENCES Distribuidores(nombre);
+ALTER TABLE Series ADD CONSTRAINT FK_Series_distribuidor FOREIGN KEY (distribuidor) REFERENCES Distribuidores(nombre);
+ALTER TABLE Episodios ADD CONSTRAINT FK_Episodios_idSerie FOREIGN KEY (idSerie) REFERENCES Series(id);
+ALTER TABLE Versiones ADD CONSTRAINT FK_Versiones_idPelicula FOREIGN KEY (idPelicula) REFERENCES Peliculas(id);
+ALTER TABLE Versiones ADD CONSTRAINT FK_Versiones_idSeries FOREIGN KEY (idSerie) REFERENCES Series(id);
+ALTER TABLE ContenidoAdicional ADD CONSTRAINT FK_ContenidoAdicional_idPelicula FOREIGN KEY (idPelicula) REFERENCES Peliculas(id);
+ALTER TABLE ContenidoAdicional ADD CONSTRAINT FK_ContenidoAdicional_idSeries FOREIGN KEY (idSerie) REFERENCES Series(id);
+ALTER TABLE ActoresPeliculas ADD CONSTRAINT FK_ActoresPeliculas_idPelicula FOREIGN KEY (idPelicula) REFERENCES Peliculas(id);
+ALTER TABLE ActoresSeries ADD CONSTRAINT FK_ActoresSeries_idSeries FOREIGN KEY (idSerie) REFERENCES Series(id);
+ALTER TABLE Bibliotecas ADD CONSTRAINT FK_Bibliotecas FOREIGN KEY (idCuenta, nombrePerfil) REFERENCES Perfiles(idCuenta, nombre);
+ALTER TABLE BibliotecasPeliculas ADD CONSTRAINT FK_BibliotecasPeliculas_idBiblioteca FOREIGN KEY (idBiblioteca) REFERENCES Bibliotecas(idBiblioteca);
+ALTER TABLE BibliotecasPeliculas ADD CONSTRAINT FK_BibliotecasPeliculas_idPelicula FOREIGN KEY (idPelicula) REFERENCES Peliculas(id);
+ALTER TABLE BibliotecasSeries ADD CONSTRAINT FK_BibliotecasSeries_idBiblioteca FOREIGN KEY (idBiblioteca) REFERENCES Bibliotecas(idBiblioteca);
+ALTER TABLE BibliotecasSeries ADD CONSTRAINT FK_BibliotecasSeries_idSerie FOREIGN KEY (idSerie) REFERENCES Series(id);
+ALTER TABLE Perfiles ADD CONSTRAINT FK_Perfiles_idCuenta FOREIGN KEY (idCuenta) REFERENCES Cuentas(id);
+ALTER TABLE Compras ADD CONSTRAINT FK_Compras_idCuenta FOREIGN KEY (idCuenta) REFERENCES Cuentas(id);
+ALTER TABLE Compras ADD CONSTRAINT FK_Compras_idPelicula FOREIGN KEY (idPelicula) REFERENCES Peliculas(id);
+ALTER TABLE Compras ADD CONSTRAINT FK_Compras_idSerie FOREIGN KEY (idSerie) REFERENCES Series(id);
+ALTER TABLE Rentas ADD CONSTRAINT FK_Rentas_idCuenta FOREIGN KEY (idCuenta) REFERENCES Cuentas(id);
+ALTER TABLE Rentas ADD CONSTRAINT FK_Rentas_idPelicula FOREIGN KEY (idPelicula) REFERENCES Peliculas(id);
+ALTER TABLE Rentas ADD CONSTRAINT FK_Rentas_idSerie FOREIGN KEY (idSerie) REFERENCES Series(id);
+ALTER TABLE MetodosDePago ADD CONSTRAINT FK_MetodosDePago_idCuenta FOREIGN KEY (idCuenta) REFERENCES Cuentas(id);
 
