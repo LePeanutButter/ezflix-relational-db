@@ -1,3 +1,0 @@
-INSERT INTO ContenidoAdicional (nombre,idPelicula,idSerie) VALUES ('Contenido 1','S0000000000000000000');
-INSERT INTO Compras(idCuenta,idPelicula,idSerie) VALUES ('C0000000000000000000','S0000000000000000000');
-INSERT INTO Renta (idCuenta, idSerie, fechaCompra) VALUES ('C0000000000000000000', 'S0000000000000000000');
