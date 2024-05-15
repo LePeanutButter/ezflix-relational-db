@@ -81,14 +81,14 @@ CREATE TABLE Cuentas(
     id CHAR(20) NOT NULL,
     nombre VARCHAR2(20) NOT NULL,
     correo VARCHAR2(100) NOT NULL,
-    contraseña VARCHAR2(20) NOT NULL,
+    contrasena VARCHAR2(20) NOT NULL,
     telefono CHAR(13) NOT NULL,
     fechaCreacion DATE NOT NULL
 );
 
 CREATE TABLE Operaciones(
     id CHAR(20) NOT NULL,
-    idCuenta CHAR(20) NOT NULL,
+    idCuenta CHAR(20) NOT NULL
 );
 
 CREATE TABLE Compras(
