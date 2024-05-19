@@ -6,7 +6,7 @@ ALTER TABLE Versiones ADD CONSTRAINT FK_Versiones_idSeries FOREIGN KEY (idSerie)
 ALTER TABLE ContenidosAdicionales ADD CONSTRAINT FK_ContenidoAdicional_idPelicula FOREIGN KEY (idPelicula) REFERENCES Peliculas(id);
 ALTER TABLE ContenidosAdicionales ADD CONSTRAINT FK_ContenidoAdicional_idSeries FOREIGN KEY (idSerie) REFERENCES Series(id);
 ALTER TABLE ActoresPeliculas ADD CONSTRAINT FK_ActoresPeliculas_idPelicula FOREIGN KEY (idPelicula) REFERENCES Peliculas(id);
-ALTER TABLE ActoresSeries ADD CONSTRAINT FK_ActoresSeries_idSeries FOREIGN KEY (idSeries) REFERENCES Series(id);
+ALTER TABLE ActoresSeries ADD CONSTRAINT FK_ActoresSeries_idSeries FOREIGN KEY (idSerie) REFERENCES Series(id);
 ALTER TABLE Bibliotecas ADD CONSTRAINT FK_Bibliotecas_idCuenta FOREIGN KEY (idCuenta) REFERENCES Cuentas(id);
 ALTER TABLE BibliotecasPeliculas ADD CONSTRAINT FK_BibliotecasPeliculas_idBiblioteca FOREIGN KEY (idBiblioteca) REFERENCES Bibliotecas(id);
 ALTER TABLE BibliotecasPeliculas ADD CONSTRAINT FK_BibliotecasPeliculas_idPelicula FOREIGN KEY (idPelicula) REFERENCES Peliculas(id);

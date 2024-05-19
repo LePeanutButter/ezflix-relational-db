@@ -117,7 +117,7 @@ CREATE TABLE Auditorias(
 
 CREATE TABLE MetodosDePago(
     idCuenta CHAR(20) NOT NULL,
-    numero VARCHAR2(16) NOT NULL,
+    numero NUMBER(16) NOT NULL,
     nombre VARCHAR2(20) NOT NULL,
     cvv NUMBER(3) NOT NULL,
     fechaExpiracion DATE NOT NULL
