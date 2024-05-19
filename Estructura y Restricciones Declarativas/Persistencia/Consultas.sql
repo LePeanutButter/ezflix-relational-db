@@ -12,4 +12,4 @@ SELECT SUM(pago) AS Ingresos
     
 -- Consultar registros de auditoria
 SELECT *
-FROM Auditoria;
+FROM Auditorias;
