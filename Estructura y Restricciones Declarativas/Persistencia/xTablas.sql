@@ -1,0 +1,17 @@
+DROP TABLE Episodios;
+DROP TABLE Versiones;
+DROP TABLE ContenidosAdicionales;
+DROP TABLE ActoresPeliculas;
+DROP TABLE ActoresSeries;
+DROP TABLE BibliotecasPeliculas;
+DROP TABLE BibliotecasSeries;
+DROP TABLE Bibliotecas;
+DROP TABLE Compras;
+DROP TABLE Rentas;
+DROP TABLE Auditorias;
+DROP TABLE MetodosDePago;
+DROP TABLE Operaciones;
+DROP TABLE Peliculas;
+DROP TABLE Series;
+DROP TABLE Distribuidores;
+DROP TABLE Cuentas;

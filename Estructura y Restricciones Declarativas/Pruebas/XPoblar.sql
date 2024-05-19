@@ -1,0 +1,17 @@
+DELETE FROM Versiones;
+DELETE FROM ActoresPeliculas;
+DELETE FROM ActoresSeries;
+DELETE FROM BibliotecasPeliculas;
+DELETE FROM BibliotecasSeries;
+DELETE FROM Episodios;
+DELETE FROM ContenidosAdicionales;
+DELETE FROM Compras;
+DELETE FROM Rentas;
+DELETE FROM Peliculas;
+DELETE FROM Series;
+DELETE FROM Distribuidores;
+DELETE FROM Bibliotecas;
+DELETE FROM MetodosDePago;
+DELETE FROM Auditorias;
+DELETE FROM Operaciones;
+DELETE FROM Cuentas;
