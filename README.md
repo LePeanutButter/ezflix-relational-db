@@ -34,3 +34,25 @@ Definición de disparadores
 
 ### xDisparadores:
 Eliminación de disparadores
+
+## Indices y Vistas
+
+### Indices
+Definición de índices
+
+### Vistas
+Definición de vistas
+
+### XIndicesVistas
+Eliminación de vistas e indices
+
+## Componentes
+
+### CRUDE
+Especificación de los paquetes de componentes
+
+### CRUDI
+Implementación de los paquetes 
+
+### XCRUD
+Eliminación de los paquetes
