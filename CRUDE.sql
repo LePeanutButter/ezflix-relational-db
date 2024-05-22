@@ -27,6 +27,9 @@ CREATE OR REPLACE PACKAGE PC_Cuentas AS
     );
 END PC_Cuentas;
 /
+
+
+
 --CRUDI
 CREATE OR REPLACE PACKAGE BODY PC_Cuentas AS
     PROCEDURE Adicionar(
@@ -126,8 +129,6 @@ END PC_distribuidores;
 
 
 
-
-    
 --CRUDE
 CREATE OR REPLACE PACKAGE PC_Peliculas AS
     PROCEDURE Adicionar(
@@ -304,3 +305,150 @@ CREATE OR REPLACE PACKAGE BODY PC_Series AS
 
 END PC_Series;
 /
+    
+ 
+ 
+ 
+--CRUDE 
+CREATE OR REPLACE PACKAGE PC_Bibliotecas AS
+    PROCEDURE Adicionar(
+        p_idCuenta IN VARCHAR2,
+        p_nombre IN VARCHAR2
+    );
+    PROCEDURE Modificar(
+        p_id IN VARCHAR2,
+        p_nombre IN VARCHAR2
+    );
+    PROCEDURE Eliminar(
+        p_id IN VARCHAR2
+    );
+    PROCEDURE Consultar(
+        p_nombre IN VARCHAR2,
+        resultado OUT SYS_REFCURSOR      
+    );
+END PC_Bibliotecas;
+/
+--CRUDI
+CREATE OR REPLACE PACKAGE BODY PC_Bibliotecas AS
+    PROCEDURE Adicionar(
+        p_idCuenta IN VARCHAR2,
+        p_nombre IN VARCHAR2
+    )IS
+    BEGIN 
+        INSERT INTO Bibliotecas(idCuenta, nombre)
+        VALUES (p_idCuenta, p_nombre);
+    END Adicionar;
+    
+    PROCEDURE Modificar(
+        p_id IN VARCHAR2,
+        p_nombre IN VARCHAR2
+    )IS
+    BEGIN 
+        UPDATE Bibliotecas 
+        SET nombre = p_nombre 
+        WHERE id = p_id;
+    END Modificar;
+    
+    PROCEDURE Eliminar(
+        p_id IN VARCHAR2
+    )IS
+    BEGIN 
+        DELETE FROM Bibliotecas WHERE id = p_id;
+    END Eliminar;
+    
+    PROCEDURE Consultar(
+        p_nombre IN VARCHAR2,
+        resultado OUT SYS_REFCURSOR      
+    )IS
+    BEGIN 
+        OPEN resultado FOR
+        SELECT * FROM bibliotecas WHERE id = p_nombre;
+    END Consultar;
+    
+END PC_Bibliotecas;
+/
+
+
+--CRUDE
+/*
+CREATE OR REPLACE PACKAGE PC_Operaciones
+--CRUDI
+*/
+
+--CRUDE
+CREATE OR REPLACE PACKAGE PC_Compras AS
+    PROCEDURE Adicionar(
+        p_idOperacion IN CHAR,
+        p_idPelicula IN CHAR,
+        p_idSerie IN CHAR,
+        p_pago IN NUMBER
+    );
+    PROCEDURE Modificar(
+        p_IdOperacion IN CHAR,
+        p_pago IN NUMBER
+    );
+    
+    PROCEDURE Eliminar(
+        p_idOperacion IN CHAR
+    );
+    
+    PROCEDURE Consultar(
+        p_idOperacion IN CHAR,
+        resultado OUT SYS_REFCURSOR      
+    );
+    
+END PC_Compras;
+/
+--CRUDI
+CREATE OR REPLACE PACKAGE BODY PC_Compras AS
+    PROCEDURE Adicionar(
+            p_idOperacion IN CHAR,
+            p_idPelicula IN CHAR,
+            p_idSerie IN CHAR,
+            p_pago IN NUMBER
+    )IS
+    BEGIN
+        INSERT INTO Compras(idOperacion,idPelicula,idSerie,pago)
+        VALUES (p_idOperacion,p_idPelicula,p_idSerie,p_pago);
+    END Adicionar;
+    
+     PROCEDURE Modificar(
+        p_idOperacion IN CHAR,
+        p_pago IN NUMBER
+    )IS
+    BEGIN
+        UPDATE compras 
+        SET pago = p_pago
+        WHERE idOperacion = p_idOperacion;
+    END Modificar;
+    
+    PROCEDURE Eliminar(
+        p_idOperacion IN CHAR
+    )IS
+    BEGIN
+        DELETE FROM Compras WHERE idOperacion = p_idOperacion;
+    END Eliminar;
+    
+    PROCEDURE Consultar(
+        p_idOperacion IN CHAR,
+        resultado OUT SYS_REFCURSOR      
+    )IS
+     BEGIN 
+        OPEN resultado FOR
+        SELECT * FROM compras WHERE idOperacion = p_idOperacion;
+    END Consultar;
+    
+END PC_Compras;
+/
+    
+    
+    
+   
+    
+
+    
+    
+    
+    
+
+    
