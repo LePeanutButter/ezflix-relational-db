@@ -1,1 +1,6 @@
-
+DROP PACKAGE PC_Cuentas;
+DROP PACKAGE PC_Distribuidores;
+DROP PACKAGE PC_Peliculas;
+DROP PACKAGE PC_Series;
+DROP PACKAGE PC_Bibliotecas;
+DROP PACKAGE PC_Compras;
