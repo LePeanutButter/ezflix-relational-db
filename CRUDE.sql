@@ -4,13 +4,13 @@ CREATE OR REPLACE PACKAGE PC_Cuentas AS
         nombre IN VARCHAR2,
         correo IN VARCHAR2,
         contrasena IN VARCHAR2,
-        telefono IN NUMBER
+        telefono IN CHAR
         );
     PROCEDURE Modificar(
         nombre IN VARCHAR2,
         correo IN VARCHAR2,
         contrasena IN VARCHAR2,
-        telefono IN NUMBER
+        telefono IN CHAR
         );
     PROCEDURE Eliminar(
         nombre IN VARCHAR2,
@@ -30,7 +30,7 @@ END PC_Cuentas;
         nombre IN VARCHAR2,
         correo IN VARCHAR2,
         contrasena IN VARCHAR2,
-        telefono IN NUMBER
+        telefono IN CHAR
     ) IS
     BEGIN
         INSERT INTO cuentas (nombre, correo, contrasena, telefono) 
@@ -41,15 +41,14 @@ END PC_Cuentas;
         nombre IN VARCHAR2,
         correo IN VARCHAR2,
         contrasena IN VARCHAR2,
-        telefono IN NUMBER
+        telefono IN CHAR
     ) IS
     BEGIN 
         UPDATE cuentas 
-        SET nombre = nombre,
-            correo = correo,
+        SET correo = correo,
             contrasena = contrasena,
             telefono = telefono
-        WHERE id = id;
+        WHERE nombre = nombre;
     END Modificar;
     
     PROCEDURE Eliminar(
@@ -73,4 +72,3 @@ END PC_Cuentas;
     END consultar;
 END PC_Cuentas;
 /
-        
