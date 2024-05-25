@@ -18,7 +18,7 @@ INSERT INTO Episodios (idSerie, numeroTemporada, nombreEpisodio, numeroEpisodio,
 INSERT INTO Episodios (idSerie, numeroTemporada, nombreEpisodio, numeroEpisodio, duracion) VALUES ('300000000000000003', 3, 'Bytecard', 3, '40:20:02');
 
 INSERT INTO Versiones (idVersion,idPelicula, nombre, descripcion, categoria, edad,idioma) VALUES ('900000','100000000000000000', 'Return to Me', 'ut rhoncus aliquet pulvinar sed nisl nunc rhoncus dui vel sem sed sagittis nam', 'Musical', 18, 'English');
-INSERT INTO Versiones (idVersion,idPelicula, nombre, descripcion, categoria, edad,idioma) VALUES ('900001','200000000000000000', 'Home Movie', 'in quam fringilla rhoncus mauris enim', 'AcciÃ³n', 13, 'English');
+INSERT INTO Versiones (idVersion,idPelicula, nombre, descripcion, categoria, edad,idioma) VALUES ('900001','200000000000000000', 'Home Movie', 'in quam fringilla rhoncus mauris enim', 'Accion', 13, 'English');
 INSERT INTO Versiones (idVersion,idPelicula, nombre, descripcion, categoria, edad,idioma) VALUES ('900002','300000000000000000', 'Crocodile Dundee II', 'in libero ut massa volutpat convallis morbi', 'Fantasia',7, 'English');
 INSERT INTO Versiones (idVersion,idSerie, nombre, descripcion, categoria, edad,idioma) VALUES ('900003','300000000000000001', 'Spawn', 'sit amet turpis elementum ligula vehicula consequat morbi a ipsum', 'Suspenso', 15, 'English');
 INSERT INTO Versiones (idVersion,idSerie, nombre, descripcion, categoria, edad,idioma) VALUES ('900004','300000000000000002', 'Head Over Heels', 'quam pharetra magna ac consequat', 'Suspenso', 15, 'English');
