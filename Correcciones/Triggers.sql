@@ -1,147 +1,223 @@
-CREATE OR REPLACE TRIGGER TG_Peliculas_idPelicula
+CREATE OR REPLACE TRIGGER TG_Peliculas_BI
 BEFORE INSERT ON Peliculas
 FOR EACH ROW
 DECLARE
     maximo VARCHAR2(20);
+    existencia NUMBER;
 BEGIN
-    SELECT MAX(SUBSTR(id, 2)) INTO maximo FROM Peliculas;
-    IF maximo IS NULL THEN
-        maximo := 'P0000000000000000000';
-    ELSE
-        maximo := 'P' || TO_CHAR(TO_NUMBER(maximo) + 1);
-    END IF;
+    LOOP
+        maximo := 'P' || TRUNC(DBMS_RANDOM.value(1000000000000000000, 9999999999999999999));
+        SELECT COUNT(*) INTO existencia FROM Peliculas WHERE id = maximo;
+        EXIT WHEN existencia = 0;
+    END LOOP;
     :NEW.id := maximo;
 END;
 /
 
-CREATE OR REPLACE TRIGGER TG_Series_idSeries
+CREATE OR REPLACE TRIGGER TG_Series_BI
 BEFORE INSERT ON Series
 FOR EACH ROW
 DECLARE
     maximo VARCHAR2(20);
+    existencia NUMBER;    
 BEGIN
-    SELECT MAX(SUBSTR(id, 2)) INTO maximo FROM Series;
-    IF maximo IS NULL THEN
-        maximo := 'S0000000000000000000';
-    ELSE
-        maximo := 'S' || TO_CHAR(TO_NUMBER(maximo) + 1);
-    END IF;
+    LOOP
+        maximo := 'S' || TRUNC(DBMS_RANDOM.value(1000000000000000000, 9999999999999999999));
+        SELECT COUNT(*) INTO existencia FROM Series WHERE id = maximo;
+        EXIT WHEN existencia = 0;
+    END LOOP;
     :NEW.id := maximo;
 END;
 /
 
-CREATE OR REPLACE TRIGGER TG_ContenidoAdicional_idContenido
-BEFORE INSERT ON ContenidoAdicional
+CREATE OR REPLACE TRIGGER TG_Versiones_BI
+BEFORE INSERT ON Versiones
 FOR EACH ROW
 DECLARE
     maximo VARCHAR2(20);
+    existencia NUMBER;    
 BEGIN
-    SELECT MAX(SUBSTR(idContenido, 2)) INTO maximo FROM ContenidoAdicional;
-    IF maximo IS NULL THEN
-        maximo := 'A0000000000000000000';
-    ELSE
-        maximo := 'A' || TO_CHAR(TO_NUMBER(maximo) + 1);
-    END IF;
-    :NEW.idContenido := maximo;
+    LOOP
+        maximo := 'V' || TRUNC(DBMS_RANDOM.value(1000000000000000000, 9999999999999999999));
+        SELECT COUNT(*) INTO existencia FROM Versiones WHERE idVersion = maximo;
+        EXIT WHEN existencia = 0;
+    END LOOP;
+    :NEW.idVersion := maximo;
 END;
 /
 
-CREATE OR REPLACE TRIGGER TG_Bibliotecas_idBiblioteca
+CREATE OR REPLACE TRIGGER TG_ContenidosAdicionales_BI
+BEFORE INSERT ON ContenidosAdicionales
+FOR EACH ROW
+DECLARE
+    maximo VARCHAR2(20);
+    existencia NUMBER;  
+BEGIN
+    LOOP
+        maximo := 'A' || TRUNC(DBMS_RANDOM.value(1000000000000000000, 9999999999999999999));
+        SELECT COUNT(*) INTO existencia FROM ContenidosAdicionales WHERE id = maximo;
+        EXIT WHEN existencia = 0;
+    END LOOP;
+    :NEW.id := maximo;
+END;
+/
+
+CREATE OR REPLACE TRIGGER TG_Bibliotecas_BI
 BEFORE INSERT ON Bibliotecas
 FOR EACH ROW
 DECLARE
     maximo VARCHAR2(20);
+    existencia NUMBER;  
 BEGIN
-    SELECT MAX(SUBSTR(idBiblioteca, 2)) INTO maximo FROM Bibliotecas;
-    IF maximo IS NULL THEN
-        maximo := 'B0000000000000000000';
-    ELSE
-        maximo := 'B' || TO_CHAR(TO_NUMBER(maximo) + 1);
-    END IF;
-    :NEW.idBiblioteca := maximo;
+    LOOP
+        maximo := 'B' || TRUNC(DBMS_RANDOM.value(1000000000000000000, 9999999999999999999));
+        SELECT COUNT(*) INTO existencia FROM ContenidosAdicionales WHERE id = maximo;
+        EXIT WHEN existencia = 0;
+    END LOOP;
+    :NEW.id := maximo;
+    :NEW.fechaCreacion := SYSDATE;
 END;
 /
 
-CREATE OR REPLACE TRIGGER TG_Cuentas_id
+/*
+CREATE OR REPLACE TRIGGER TG_Cuentas_BI
 BEFORE INSERT ON Cuentas
 FOR EACH ROW
 DECLARE
     maximo VARCHAR2(20);
+    existencia NUMBER; 
+    FUNCTION cifrado(input VARCHAR2) RETURN VARCHAR2 IS
+            output VARCHAR2(20);
+        BEGIN
+            output := RPAD(input, 20, ' '); 
+            output := SUBSTR(input, 6, 1) || SUBSTR(input, 1, 5) || SUBSTR(input, 11, 1)|| SUBSTR(input, 7, 4) || SUBSTR(input, 16, 5) || SUBSTR(input, 12, 3) || SUBSTR(input, 20, 1) || SUBSTR(input, 8, 3) || SUBSTR(input, 2, 4) || SUBSTR(input, 19, 1) || SUBSTR(input, 15, 1) || SUBSTR(input, 13, 1) || SUBSTR(input, 3, 4) || SUBSTR(input, 17, 2) || SUBSTR(input, 18, 1) || SUBSTR(input, 10, 2) || SUBSTR(input, 14, 1) || SUBSTR(input, 4, 4) || SUBSTR(input, 9, 1);
+            RETURN output;
+        END cifrado;
 BEGIN
-    SELECT MAX(SUBSTR(id, 2)) INTO maximo FROM Cuentas;
-    IF maximo IS NULL THEN
-        maximo := 'C0000000000000000000';
-    ELSE
-        maximo := 'C' || TO_CHAR(TO_NUMBER(maximo) + 1);
-    END IF;
+    LOOP
+        maximo := 'C' || TRUNC(DBMS_RANDOM.value(1000000000000000000, 9999999999999999999));
+        SELECT COUNT(*) INTO existencia FROM ContenidosAdicionales WHERE id = maximo;
+        EXIT WHEN existencia = 0;
+    END LOOP;
+    :NEW.id := maximo;
+    :NEW.fechaCreacion := SYSDATE;
+    :NEW.contrasena := cifrado(:NEW.contrasena);
+END;
+*/
+
+CREATE OR REPLACE TRIGGER TG_Operaciones_BI
+BEFORE INSERT ON Operaciones 
+FOR EACH ROW
+DECLARE
+    maximo VARCHAR2(20);
+    existencia NUMBER;  
+BEGIN
+    LOOP
+        maximo := 'O' || TRUNC(DBMS_RANDOM.value(1000000000000000000, 9999999999999999999));
+        SELECT COUNT(*) INTO existencia FROM Operaciones WHERE id = maximo;
+        EXIT WHEN existencia = 0;
+    END LOOP;
     :NEW.id := maximo;
 END;
 /
 
--- Automatizacion fechas
-CREATE OR REPLACE TRIGGER TG_Compras_Pelicula_fechaCompra
+CREATE OR REPLACE TRIGGER TG_Operaciones_AI
+AFTER INSERT ON Operaciones
+FOR EACH ROW
+BEGIN
+    INSERT INTO Auditorias(idOperacion, operacion, fechaOperacion) VALUES (:NEW.id, 'CREATE', SYSDATE);
+END;
+/
+
+CREATE OR REPLACE TRIGGER TG_Operaciones_AU
+AFTER UPDATE ON Operaciones
+FOR EACH ROW
+BEGIN
+    INSERT INTO Auditorias(idOperacion, operacion, fechaOperacion) VALUES (:NEW.id, 'UPDATE', SYSDATE);
+END;
+/
+
+CREATE OR REPLACE TRIGGER TG_Operaciones_AD
+AFTER DELETE ON Operaciones
+FOR EACH ROW
+BEGIN
+    INSERT INTO Auditorias(idOperacion, operacion, fechaOperacion) VALUES (:OLD.id, 'DELETE', SYSDATE);
+END;
+/
+
+CREATE OR REPLACE TRIGGER TG_Compras_BI
 BEFORE INSERT ON Compras
 FOR EACH ROW
 DECLARE
     cantidad NUMBER;
+    precioPago NUMBER;
+    v_idCuenta VARCHAR2(20);
 BEGIN
-    SELECT COUNT(idPelicula) INTO cantidad FROM Compras WHERE :NEW.idCuenta = idCuenta AND :NEW.idPelicula = idPelicula;
-    IF cantidad < 1 THEN :NEW.fechaCompra := SYSDATE;
-    ELSE RAISE_APPLICATION_ERROR(-20002, 'Esta pelicula ya se encuentra en su catalogo.');
+    SELECT idCuenta INTO v_idCuenta FROM Operaciones WHERE id = :NEW.idOperacion;
+    IF :NEW.idPelicula IS NOT NULL AND v_idCuenta IS NOT NULL THEN
+        SELECT COUNT(idPelicula) INTO cantidad FROM Compras JOIN Operaciones ON (Compras.idOperacion = Operaciones.id) WHERE Operaciones.idCuenta = v_idCuenta AND :NEW.idPelicula = idPelicula;
+        SELECT precioCompra INTO precioPago FROM Peliculas WHERE :NEW.idPelicula = id;
+        IF cantidad < 1 THEN
+            :NEW.fechaCompra := SYSDATE;
+            :NEW.pago := precioPago;
+        ELSE
+            RAISE_APPLICATION_ERROR(-20002, 'Esta pelicula ya se encuentra en su catalogo.');
+        END IF;
+    ELSIF :NEW.idSerie IS NOT NULL AND v_idCuenta IS NOT NULL THEN
+        SELECT COUNT(idSerie) INTO cantidad FROM Compras JOIN Operaciones ON (Compras.idOperacion = Operaciones.id) WHERE Operaciones.idCuenta = v_idCuenta AND :NEW.idSerie = idSerie;
+        SELECT precioCompra INTO precioPago FROM Series WHERE :NEW.idSerie = id;
+        IF cantidad < 1 THEN
+            :NEW.fechaCompra := SYSDATE;
+            :NEW.pago := precioPago;
+        ELSE
+            RAISE_APPLICATION_ERROR(-20002, 'Esta serie ya se encuentra en su catalogo.');
+        END IF;
+    ELSE
+        RAISE_APPLICATION_ERROR(-20003, 'No se ha proporcionado ni idPelicula ni idSerie.');
     END IF;
 END;
 /
 
-CREATE OR REPLACE TRIGGER TG_Compras_Serie_fechaCompra
-BEFORE INSERT ON Compras
-FOR EACH ROW
-DECLARE
-    cantidad NUMBER;
-BEGIN
-    SELECT COUNT(idSerie) INTO cantidad FROM Compras WHERE :NEW.idCuenta = idCuenta AND :NEW.idSerie = idSerie;
-    IF cantidad < 1 THEN :NEW.fechaCompra := SYSDATE;
-    ELSE RAISE_APPLICATION_ERROR(-20002, 'Esta serie ya se encuentra en su catalogo.');
-    END IF;
-END;
-/
-
-CREATE OR REPLACE TRIGGER TG_Rentas_fechaRenta_idSerie_fechaExpiracion
+/*
+CREATE OR REPLACE TRIGGER TG_Rentas_BI
 BEFORE INSERT ON Rentas
 FOR EACH ROW
 DECLARE
     cantidad NUMBER;
     fecha DATE;
+    precioPago NUMBER;
+    v_idCuenta VARCHAR2(20);
 BEGIN
-    SELECT COUNT(idSerie) INTO cantidad FROM Rentas WHERE :NEW.idCuenta = idCuenta AND :NEW.idSerie = idSerie;
-    SELECT fechaExpiracion INTO fecha FROM (SELECT * FROM Rentas WHERE :NEW.idCuenta = idCuenta AND :NEW.idSerie = idSerie ORDER BY fechaExpiracion DESC) WHERE ROWNUM = 1;
-    IF cantidad < 1 AND fecha < SYSDATE THEN
-        :NEW.fechaRenta := SYSDATE;
-        :NEW.fechaExpiracion := ADD_MONTHS(SYSDATE, 1);
-    ELSE 
-        RAISE_APPLICATION_ERROR(-20002, 'Esta serie ya se encuentra en su catálogo o la fecha de expiración de la última renta no ha pasado.');
+    SELECT idCuenta INTO v_idCuenta FROM Operaciones WHERE id = :NEW.idOperacion;
+    IF :NEW.idSerie IS NOT NULL AND v_idCuenta IS NOT NULL THEN
+        SELECT COUNT(idSerie) INTO cantidad FROM Rentas JOIN Operaciones ON (Rentas.idOperacion = Operaciones.id) WHERE Operaciones.idCuenta = v_idCuenta AND :NEW.idSerie = idSerie;
+        SELECT fechaExpiracion INTO fecha FROM (SELECT * FROM Rentas JOIN Operaciones ON (Rentas.idOperacion = Operaciones.id) WHERE Operaciones.idCuenta = v_idCuenta AND :NEW.idSerie = idSerie ORDER BY fechaExpiracion DESC) WHERE ROWNUM = 1;
+        SELECT precioCompra INTO precioPago FROM Series WHERE :NEW.idSerie = id;
+        IF cantidad < 1 AND fecha < SYSDATE THEN
+            :NEW.fechaRenta := SYSDATE;
+            :NEW.fechaExpiracion := ADD_MONTHS(SYSDATE, 1);
+            :NEW.pago := precioPago;
+        ELSE
+            RAISE_APPLICATION_ERROR(-20002, 'Esta serie ya se encuentra en su catálogo o la renta no ha expirado.');
+        END IF;
+    ELSIF :NEW.idPelicula IS NOT NULL AND v_idCuenta IS NOT NULL THEN
+        SELECT COUNT(idPelicula) INTO cantidad FROM Rentas JOIN Operaciones ON (Rentas.idOperacion = Operaciones.id) WHERE Operaciones.idCuenta = v_idCuenta AND :NEW.idPelicula = idPelicula;
+        SELECT fechaExpiracion INTO fecha FROM (SELECT * FROM Rentas JOIN Operaciones ON (Rentas.idOperacion = Operaciones.id) WHERE Operaciones.idCuenta = v_idCuenta AND :NEW.idPelicula = idPelicula ORDER BY fechaExpiracion DESC) WHERE ROWNUM = 1;
+        SELECT precioCompra INTO precioPago FROM Peliculas WHERE :NEW.idPelicula = id;
+        IF cantidad < 1 AND fecha < SYSDATE THEN
+            :NEW.fechaRenta := SYSDATE;
+            :NEW.fechaExpiracion := ADD_MONTHS(SYSDATE, 1);
+            :NEW.pago := precioPago;
+        ELSE
+            RAISE_APPLICATION_ERROR(-20002, 'Esta película ya se encuentra en su catálogo o la renta no ha expirado.');
+        END IF;
+    ELSE
+        RAISE_APPLICATION_ERROR(-20003, 'No se ha proporcionado ni idSerie ni idPelicula.');
     END IF;
 END;
-/
+*/
 
-CREATE OR REPLACE TRIGGER TG_Rentas_fechaRenta_idPelicula_fechaExpiracion
-BEFORE INSERT ON Rentas
-FOR EACH ROW
-DECLARE
-    cantidad NUMBER;
-    fecha DATE;
-BEGIN
-    SELECT COUNT(idPelicula) INTO cantidad FROM Rentas WHERE :NEW.idCuenta = idCuenta AND :NEW.idPelicula = idPelicula;
-    SELECT fechaExpiracion INTO fecha FROM (SELECT * FROM Rentas WHERE :NEW.idCuenta = idCuenta AND :NEW.idPelicula = idPelicula ORDER BY fechaExpiracion DESC) WHERE ROWNUM = 1;
-    IF cantidad < 1 AND fecha < SYSDATE THEN
-        :NEW.fechaRenta := SYSDATE;
-        :NEW.fechaExpiracion := ADD_MONTHS(SYSDATE, 1);
-    ELSE 
-        RAISE_APPLICATION_ERROR(-20002, 'Esta película ya se encuentra en su catálogo o la fecha de expiración de la última renta no ha pasado.');
-    END IF;
-END;
-/
-
-CREATE OR REPLACE TRIGGER TG_Distribuidores_fechaAsociacion
+CREATE OR REPLACE TRIGGER TG_Distribuidores_BI
 BEFORE INSERT ON Distribuidores
 FOR EACH ROW
 BEGIN
@@ -149,108 +225,85 @@ BEGIN
 END;
 /
 
-CREATE OR REPLACE TRIGGER TG_Bibliotecas_fechaCreacion
-BEFORE INSERT ON Bibliotecas
-FOR EACH ROW
-BEGIN
-    :NEW.fechaCreacion := SYSDATE;
-END;
-/
-
-CREATE OR REPLACE TRIGGER TG_Cuentas_fechaCreacion
-BEFORE INSERT ON Cuentas
-FOR EACH ROW
-BEGIN
-    :NEW.fechaCreacion := SYSDATE;
-END;
-/
-
--- Consultas
-CREATE OR REPLACE TRIGGER TG_BibliotecasPeliculas_Compras_idPelicula
+CREATE OR REPLACE TRIGGER TG_BibliotecasPeliculas_BI
 BEFORE INSERT ON BibliotecasPeliculas
 FOR EACH ROW
 DECLARE
     v_pelicula CHAR(20);
+    fecha DATE;
+    v_idCuenta VARCHAR2(20);
 BEGIN
-    -- Buscar si la película ha sido comprada previamente
-    SELECT idPelicula INTO v_pelicula
-    FROM Compras
-    WHERE :NEW.idPelicula = idPelicula;
-
-    -- Si se encuentra una coincidencia, asignar el idPelicula correspondiente
-    IF v_pelicula IS NOT NULL THEN 
+    SELECT idCuenta INTO v_idCuenta FROM Bibliotecas WHERE :NEW.idBiblioteca = Bibliotecas.id;
+    SELECT idPelicula INTO v_pelicula FROM Compras JOIN Operaciones ON (Operaciones.id = Compras.idOperacion) WHERE :NEW.idPelicula = Compras.idPelicula AND Operaciones.idCuenta = v_idCuenta;
+    IF v_pelicula IS NOT NULL THEN
         :NEW.idPelicula := v_pelicula;
-    ELSE 
-        -- Si no se encuentra ninguna coincidencia, mostrar un mensaje de error
-        RAISE_APPLICATION_ERROR (-20001, 'Esta película no está en su catálogo.');
+    ELSE
+        SELECT idPelicula, fechaExpiracion INTO v_pelicula, fecha FROM (SELECT * FROM Rentas JOIN Operaciones ON (Operaciones.id = Rentas.idOperacion) WHERE :NEW.idPelicula = Rentas.idPelicula AND Operaciones.idCuenta = v_idCuenta ORDER BY fechaExpiracion DESC) WHERE ROWNUM = 1;
+        IF v_pelicula IS NOT NULL AND fecha > SYSDATE THEN
+            :NEW.idPelicula := v_pelicula;
+        ELSE
+            RAISE_APPLICATION_ERROR (-20001, 'Esta película no está en su catálogo o ya ha pasado la fecha de expiración.');
+        END IF;
     END IF;
 END;
 /
 
-CREATE OR REPLACE TRIGGER TG_BibliotecasSeries_Compras_idSerie
+
+CREATE OR REPLACE TRIGGER TG_BibliotecasSeries_BI
 BEFORE INSERT ON BibliotecasSeries
 FOR EACH ROW
 DECLARE
     v_serie CHAR(20);
+    fecha DATE;
+    v_idCuenta VARCHAR2(20);
 BEGIN
-    -- Buscar si la serie ha sido comprada previamente
-    SELECT idSerie INTO v_serie
-    FROM Compras
-    WHERE :NEW.idSerie = idSerie;
-
-    -- Si se encuentra una coincidencia, asignar el idSerie correspondiente
-    IF v_serie IS NOT NULL THEN 
+    SELECT idCuenta INTO v_idCuenta FROM Bibliotecas WHERE :NEW.idBiblioteca = Bibliotecas.id;
+    SELECT idSerie INTO v_serie FROM Compras JOIN Operaciones ON (Operaciones.id = Compras.idOperacion) WHERE :NEW.idSerie = Compras.idSerie AND Operaciones.idCuenta = v_idCuenta;
+    IF v_serie IS NOT NULL THEN
         :NEW.idSerie := v_serie;
-    ELSE 
-        -- Si no se encuentra ninguna coincidencia, mostrar un mensaje de error
-        RAISE_APPLICATION_ERROR (-20001, 'Esta serie no está en su catálogo.');
+    ELSE
+        SELECT idSerie, fechaExpiracion INTO v_serie, fecha FROM (SELECT * FROM Rentas JOIN Operaciones ON (Operaciones.id = Rentas.idOperacion) WHERE :NEW.idSerie = Rentas.idSerie AND Operaciones.idCuenta = v_idCuenta ORDER BY fechaExpiracion DESC) WHERE ROWNUM = 1;
+        IF v_serie IS NOT NULL AND fecha > SYSDATE THEN
+            :NEW.idSerie := v_serie;
+        ELSE
+            RAISE_APPLICATION_ERROR (-20001, 'Esta serie no está en su catálogo o ya ha pasado la fecha de expiración.');
+        END IF;
     END IF;
 END;
 /
 
-CREATE OR REPLACE TRIGGER TG_BibliotecasPeliculas_Rentas_idPelicula
-BEFORE INSERT ON BibliotecasPeliculas
-DECLARE
-    v_pelicula CHAR(20);
-    fecha DATE;
-BEGIN
-    SELECT idPelicula INTO v_pelicula FROM (SELECT * FROM Rentas WHERE :NEW.idPelicula = Rentas.idPelicula AND :NEW.idCuenta = Rentas.idCuenta ORDER BY fechaExpiracion DESC) WHERE ROWNUM = 1;
-    SELECT fechaExpiracion INTO cantidad FROM (SELECT * FROM Rentas WHERE :NEW.idCuenta = idCuenta AND :NEW.idPelicula = idPelicula ORDER BY fechaExpiracion DESC) WHERE ROWNUM = 1;
-    IF v_pelicula IS NOT NULL AND fecha > SYSDATE THEN :NEW.idPelicula = v_pelicula;
-    ELSE RAISE_APPLICATION_ERROR (-20001, 'Esta pelicula no esta en su catalogo o ya paso la fecha de expiracion.');
-    END IF;
-END;
-/
-
-CREATE OR REPLACE TRIGGER TG_BibliotecasSeries_Rentas_idSeries
-BEFORE INSERT ON BibliotecasSeries
-DECLARE
-    v_serie CHAR(20);
-    fecha DATE;
-BEGIN
-    SELECT idSerie INTO v_serie FROM (SELECT * FROM Rentas WHERE :NEW.idSerie = Rentas.idSerie AND :NEW.idCuenta = Rentas.idCuenta ORDER BY fechaExpiracion DESC) WHERE ROWNUM = 1;
-    SELECT fechaExpiracion INTO cantidad FROM (SELECT * FROM Rentas WHERE :NEW.idCuenta = idCuenta AND :NEW.idSerie = idSerie ORDER BY fechaExpiracion DESC) WHERE ROWNUM = 1;
-    IF v_serie IS NOT NULL AND fecha > SYSDATE THEN :NEW.idSerie = v_serie;
-    ELSE RAISE_APPLICATION_ERROR (-20001, 'Esta serie no esta en su catalogo o ya paso la fecha de expiracion.');
-    END IF;
-END;
-/
-
--- Borrar renta
-CREATE OR REPLACE TRIGGER TG_BibliotecasPeliculas_Rentas_fechaExpiracion
+/*
+CREATE OR REPLACE TRIGGER TG_BibliotecasPeliculas_AUI
 AFTER INSERT OR UPDATE ON Rentas
 FOR EACH ROW
 BEGIN
-    IF :NEW.fechaExpiracion < SYSDATE THEN DELETE FROM BibliotecasPeliculas WHERE idPelicula = :NEW.idPelicula;
-    END IF;
+    DELETE FROM BibliotecasPeliculas
+    WHERE idPelicula = :NEW.idPelicula
+    AND idBiblioteca IN (
+        SELECT Bibliotecas.id
+        FROM Bibliotecas
+        JOIN Cuentas ON Bibliotecas.idCuenta = Cuentas.id
+        JOIN Operaciones ON Cuentas.id = Operaciones.idCuenta
+        WHERE Operaciones.id = :NEW.idOperacion
+    )
+    AND :NEW.fechaExpiracion < SYSDATE;
 END;
-/
+*/
 
-CREATE OR REPLACE TRIGGER TG_BibliotecasSeries_Rentas_fechaExpiracion
+/*
+CREATE OR REPLACE TRIGGER TG_BibliotecasSeries_AUI
 AFTER INSERT OR UPDATE ON Rentas
 FOR EACH ROW
 BEGIN
-    IF :NEW.fechaExpiracion < SYSDATE THEN DELETE FROM BibliotecasSeries WHERE idSerie = :NEW.idSerie;
-    END IF;
+    DELETE FROM BibliotecasSeries 
+    WHERE idSerie = :NEW.idSerie
+    AND idBiblioteca IN (
+        SELECT Bibliotecas.id
+        FROM Bibliotecas
+        JOIN Cuentas ON Bibliotecas.idCuenta = Cuentas.id
+        JOIN Operaciones ON Cuentas.id = Operaciones.idCuenta
+        WHERE Operaciones.id = :NEW.idOperacion
+    )
+    AND :NEW.fechaExpiracion < SYSDATE;
 END;
-/
+*/
