@@ -79,18 +79,30 @@ BEGIN
 END;
 /
 
+CREATE OR REPLACE FUNCTION cifrado(input VARCHAR2)
+RETURN VARCHAR2 IS
+  permuted VARCHAR2(20);
+  len NUMBER := LENGTH(input);
+  i NUMBER := 1;
+BEGIN
+  permuted := input;
+  WHILE i < len LOOP
+    permuted    := SUBSTR(permuted, 1, i - 1) || 
+                    SUBSTR(permuted, i + 1, 1) || 
+                    SUBSTR(permuted, i, 1) || 
+                    SUBSTR(permuted, i + 2);
+    i := i + 2;
+  END LOOP;
+  RETURN permuted;
+END cifrado;
+/
+
 CREATE OR REPLACE TRIGGER TG_Cuentas_BI
 BEFORE INSERT ON Cuentas
 FOR EACH ROW
 DECLARE
     maximo VARCHAR2(20);
     existencia NUMBER; 
-    FUNCTION cifrado(input VARCHAR2) RETURN VARCHAR2 IS
-            output VARCHAR2(20);
-        BEGIN
-            output := SUBSTR(input, 6, 1) || SUBSTR(input, 1, 5) || SUBSTR(input, 11, 1)|| SUBSTR(input, 7, 4) || SUBSTR(input, 16, 5) || SUBSTR(input, 12, 3) || SUBSTR(input, 20, 1) || SUBSTR(input, 8, 3) || SUBSTR(input, 2, 4) || SUBSTR(input, 19, 1) || SUBSTR(input, 15, 1) || SUBSTR(input, 13, 1) || SUBSTR(input, 3, 4) || SUBSTR(input, 17, 2) || SUBSTR(input, 18, 1) || SUBSTR(input, 10, 2) || SUBSTR(input, 14, 1) || SUBSTR(input, 4, 4) || SUBSTR(input, 9, 1);
-            RETURN output;
-        END cifrado;
 BEGIN
     LOOP
         maximo := 'C' || TRUNC(DBMS_RANDOM.value(1000000000000000000, 9999999999999999999));
@@ -102,7 +114,6 @@ BEGIN
     :NEW.contrasena := cifrado(:NEW.contrasena);
 END;
 /
-
 
 CREATE OR REPLACE TRIGGER TG_Operaciones_BI
 BEFORE INSERT ON Operaciones 
@@ -193,6 +204,7 @@ BEGIN
         SELECT precioCompra INTO precioPago FROM Series WHERE :NEW.idSerie = id;
         IF cantidad < 1 AND fecha < SYSDATE THEN
             :NEW.fechaRenta := SYSDATE;
+            :NEW.dias := 30;
             :NEW.fechaExpiracion := ADD_MONTHS(SYSDATE, 1);
             :NEW.pago := precioPago;
         ELSE
@@ -204,6 +216,7 @@ BEGIN
         SELECT precioCompra INTO precioPago FROM Peliculas WHERE :NEW.idPelicula = id;
         IF cantidad < 1 AND fecha < SYSDATE THEN
             :NEW.fechaRenta := SYSDATE;
+            :NEW.dias := 30;
             :NEW.fechaExpiracion := ADD_MONTHS(SYSDATE, 1);
             :NEW.pago := precioPago;
         ELSE
@@ -270,6 +283,8 @@ BEGIN
 END;
 /
 
+
+-- Los siguientes Triggers no se pueden probar debido a que TG_Rentas_BI automatiza la fecha de renta, por ende TG_BibliotecasPeliculas_AUI y TG_BibliotecasSeries_AUI no hacen nada
 CREATE OR REPLACE TRIGGER TG_BibliotecasPeliculas_AUI
 AFTER INSERT OR UPDATE ON Rentas
 FOR EACH ROW
@@ -286,7 +301,6 @@ BEGIN
     AND :NEW.fechaExpiracion < SYSDATE;
 END;
 /
-
 
 CREATE OR REPLACE TRIGGER TG_BibliotecasSeries_AUI
 AFTER INSERT OR UPDATE ON Rentas

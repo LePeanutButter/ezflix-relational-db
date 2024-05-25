@@ -154,12 +154,6 @@ CREATE OR REPLACE PACKAGE BODY PA_Soporte AS
     END consultarCuenta;
 
     PROCEDURE modificarCuenta(p_nombre IN VARCHAR2, p_correo IN VARCHAR2, p_contrasena IN VARCHAR2, p_telefono IN NUMBER) AS
-        FUNCTION cifrado(input VARCHAR2) RETURN VARCHAR2 IS
-            output VARCHAR2(20);
-        BEGIN
-            output := SUBSTR(input, 6, 1) || SUBSTR(input, 1, 5) || SUBSTR(input, 11, 1)|| SUBSTR(input, 7, 4) || SUBSTR(input, 16, 5) || SUBSTR(input, 12, 3) || SUBSTR(input, 20, 1) || SUBSTR(input, 8, 3) || SUBSTR(input, 2, 4) || SUBSTR(input, 19, 1) || SUBSTR(input, 15, 1) || SUBSTR(input, 13, 1) || SUBSTR(input, 3, 4) || SUBSTR(input, 17, 2) || SUBSTR(input, 18, 1) || SUBSTR(input, 10, 2) || SUBSTR(input, 14, 1) || SUBSTR(input, 4, 4) || SUBSTR(input, 9, 1);
-            RETURN output;
-        END cifrado;
     BEGIN
         IF p_nombre IS NOT NULL AND p_correo IS NOT NULL THEN
             IF contrasena IS NOT NULL THEN

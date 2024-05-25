@@ -6,7 +6,7 @@ CREATE TABLE Peliculas(
     precioCompra NUMBER(6) NOT NULL,
     precioRenta NUMBER(6) NOT NULL,
     duracion VARCHAR2(8) NOT NULL,
-    distribuidor VARCHAR2(20)
+    distribuidor VARCHAR2(20) NOT NULL
 );
 
 CREATE TABLE Series(
@@ -16,7 +16,7 @@ CREATE TABLE Series(
     productora VARCHAR2(20) NOT NULL,
     precioCompra NUMBER(6) NOT NULL,
     precioRenta NUMBER(6) NOT NULL,
-    distribuidor VARCHAR2(20)
+    distribuidor VARCHAR2(20) NOT NULL
 );
 
 CREATE TABLE Episodios(

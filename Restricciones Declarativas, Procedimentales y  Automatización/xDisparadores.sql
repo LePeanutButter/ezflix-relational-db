@@ -4,6 +4,7 @@ DROP TRIGGER TG_Versiones_BI;
 DROP TRIGGER TG_ContenidosAdicionales_BI;
 DROP TRIGGER TG_Bibliotecas_BI;
 DROP TRIGGER TG_Cuentas_BI;
+DROP FUNCTION cifrado;
 DROP TRIGGER TG_Operaciones_BI;
 DROP TRIGGER TG_Operaciones_AI;
 DROP TRIGGER TG_Operaciones_AU;

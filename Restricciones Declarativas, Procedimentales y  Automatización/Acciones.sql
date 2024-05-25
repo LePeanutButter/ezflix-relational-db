@@ -1,6 +1,4 @@
 -- xForaneas
-ALTER TABLE Peliculas DROP CONSTRAINT FK_Peliculas_distribuidor;
-ALTER TABLE Series DROP CONSTRAINT FK_Series_distribuidor;
 ALTER TABLE Episodios DROP CONSTRAINT FK_Episodios_idSerie;
 ALTER TABLE Versiones DROP CONSTRAINT FK_Versiones_idPelicula;
 ALTER TABLE Versiones DROP CONSTRAINT FK_Versiones_idSeries;
@@ -13,29 +11,15 @@ ALTER TABLE BibliotecasPeliculas DROP CONSTRAINT FK_BibliotecasPeliculas_idBibli
 ALTER TABLE BibliotecasPeliculas DROP CONSTRAINT FK_BibliotecasPeliculas_idPelicula;
 ALTER TABLE BibliotecasSeries DROP CONSTRAINT FK_BibliotecasSeries_idBiblioteca;
 ALTER TABLE BibliotecasSeries DROP CONSTRAINT FK_BibliotecasSeries_idSerie;
-ALTER TABLE Operaciones DROP CONSTRAINT FK_Operaciones_idCuenta;
 ALTER TABLE Compras DROP CONSTRAINT FK_Compras_idOperacion;
 ALTER TABLE Compras DROP CONSTRAINT FK_Compras_idPelicula;
 ALTER TABLE Compras DROP CONSTRAINT FK_Compras_idSerie;
 ALTER TABLE Rentas DROP CONSTRAINT FK_Rentas_idOperacion;
 ALTER TABLE Rentas DROP CONSTRAINT FK_Rentas_idPelicula;
 ALTER TABLE Rentas DROP CONSTRAINT FK_Rentas_idSerie;
-ALTER TABLE Auditorias DROP CONSTRAINT FK_Auditorias_idOperacion;
 ALTER TABLE MetodosDePago DROP CONSTRAINT FK_MetodosDePago_idCuenta;
 
 -- Acciones
-ALTER TABLE Peliculas
-ADD CONSTRAINT FK_Peliculas_distribuidor FOREIGN KEY (distribuidor)
-REFERENCES Distribuidores(nombre)
-ON DELETE SET NULL;
-/
-
-ALTER TABLE Series
-ADD CONSTRAINT FK_Series_distribuidor FOREIGN KEY (distribuidor)
-REFERENCES Distribuidores(nombre)
-ON DELETE SET NULL;
-/
-
 ALTER TABLE Episodios
 ADD CONSTRAINT FK_Episodios_idSerie FOREIGN KEY (idSerie)
 REFERENCES Series(id)
@@ -53,6 +37,7 @@ ADD CONSTRAINT FK_Versiones_idSeries FOREIGN KEY (idSerie)
 REFERENCES Series(id)
 ON DELETE CASCADE;
 /
+
 ALTER TABLE ContenidosAdicionales
 ADD CONSTRAINT FK_ContenidoAdicional_idPelicula FOREIGN KEY (idPelicula)
 REFERENCES Peliculas(id)
@@ -107,12 +92,6 @@ REFERENCES Series(id)
 ON DELETE CASCADE;
 /
 
-ALTER TABLE Operaciones
-ADD CONSTRAINT FK_Operaciones_idCuenta FOREIGN KEY (idCuenta)
-REFERENCES Cuentas(id)
-ON DELETE SET NULL;
-/
-
 ALTER TABLE Compras
 ADD CONSTRAINT FK_Compras_idOperacion FOREIGN KEY (idOperacion)
 REFERENCES Operaciones(id)
@@ -146,12 +125,6 @@ ON DELETE SET NULL;
 ALTER TABLE Rentas
 ADD CONSTRAINT FK_Rentas_idSerie FOREIGN KEY (idSerie)
 REFERENCES Series(id)
-ON DELETE SET NULL;
-/
-
-ALTER TABLE Auditorias
-ADD CONSTRAINT FK_Auditorias_idOperacion FOREIGN KEY (idOperacion)
-REFERENCES Operaciones(id)
 ON DELETE SET NULL;
 /
 
