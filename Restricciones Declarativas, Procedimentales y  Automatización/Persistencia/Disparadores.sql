@@ -197,30 +197,52 @@ DECLARE
     precioPago NUMBER;
     v_idCuenta VARCHAR2(20);
 BEGIN
-    SELECT idCuenta INTO v_idCuenta FROM Operaciones WHERE id = :NEW.idOperacion;
+    BEGIN
+        SELECT idCuenta INTO v_idCuenta FROM Operaciones WHERE id = :NEW.idOperacion;
+    EXCEPTION
+        WHEN NO_DATA_FOUND THEN
+            RAISE_APPLICATION_ERROR(-20004, 'No se encontró la operación especificada.');
+    END;
+
     IF :NEW.idSerie IS NOT NULL AND v_idCuenta IS NOT NULL THEN
-        SELECT COUNT(idSerie) INTO cantidad FROM Rentas JOIN Operaciones ON (Rentas.idOperacion = Operaciones.id) WHERE Operaciones.idCuenta = v_idCuenta AND :NEW.idSerie = idSerie;
-        SELECT fechaExpiracion INTO fecha FROM (SELECT * FROM Rentas JOIN Operaciones ON (Rentas.idOperacion = Operaciones.id) WHERE Operaciones.idCuenta = v_idCuenta AND :NEW.idSerie = idSerie ORDER BY fechaExpiracion DESC) WHERE ROWNUM = 1;
-        SELECT precioCompra INTO precioPago FROM Series WHERE :NEW.idSerie = id;
-        IF cantidad < 1 AND fecha < SYSDATE THEN
+        BEGIN
+            SELECT COUNT(idSerie) INTO cantidad FROM Rentas JOIN Operaciones ON (Rentas.idOperacion = Operaciones.id) WHERE Operaciones.idCuenta = v_idCuenta AND :NEW.idSerie = idSerie;
+            SELECT fechaExpiracion INTO fecha FROM (SELECT * FROM Rentas JOIN Operaciones ON (Rentas.idOperacion = Operaciones.id) WHERE Operaciones.idCuenta = v_idCuenta AND :NEW.idSerie = idSerie ORDER BY fechaExpiracion DESC) WHERE ROWNUM = 1;
+            SELECT precioCompra INTO precioPago FROM Series WHERE :NEW.idSerie = id;
+        EXCEPTION
+            WHEN NO_DATA_FOUND THEN
+                fecha := NULL; 
+                cantidad := 0; 
+                precioPago := 3000;
+        END;
+
+        IF cantidad < 1 AND (fecha IS NULL OR fecha < SYSDATE) THEN
             :NEW.fechaRenta := SYSDATE;
             :NEW.dias := 30;
             :NEW.fechaExpiracion := ADD_MONTHS(SYSDATE, 1);
             :NEW.pago := precioPago;
         ELSE
-            RAISE_APPLICATION_ERROR(-20002, 'Esta serie ya se encuentra en su catálogo o la renta no ha expirado.');
+            RAISE_APPLICATION_ERROR(-20002, 'Esta serie ya se encuentra en su catalogo o la renta no ha expirado.');
         END IF;
     ELSIF :NEW.idPelicula IS NOT NULL AND v_idCuenta IS NOT NULL THEN
-        SELECT COUNT(idPelicula) INTO cantidad FROM Rentas JOIN Operaciones ON (Rentas.idOperacion = Operaciones.id) WHERE Operaciones.idCuenta = v_idCuenta AND :NEW.idPelicula = idPelicula;
-        SELECT fechaExpiracion INTO fecha FROM (SELECT * FROM Rentas JOIN Operaciones ON (Rentas.idOperacion = Operaciones.id) WHERE Operaciones.idCuenta = v_idCuenta AND :NEW.idPelicula = idPelicula ORDER BY fechaExpiracion DESC) WHERE ROWNUM = 1;
-        SELECT precioCompra INTO precioPago FROM Peliculas WHERE :NEW.idPelicula = id;
-        IF cantidad < 1 AND fecha < SYSDATE THEN
+        BEGIN
+            SELECT COUNT(idPelicula) INTO cantidad FROM Rentas JOIN Operaciones ON (Rentas.idOperacion = Operaciones.id) WHERE Operaciones.idCuenta = v_idCuenta AND :NEW.idPelicula = idPelicula;
+            SELECT fechaExpiracion INTO fecha FROM (SELECT * FROM Rentas JOIN Operaciones ON (Rentas.idOperacion = Operaciones.id) WHERE Operaciones.idCuenta = v_idCuenta AND :NEW.idPelicula = idPelicula ORDER BY fechaExpiracion DESC) WHERE ROWNUM = 1;
+            SELECT precioCompra INTO precioPago FROM Peliculas WHERE :NEW.idPelicula = id;
+        EXCEPTION
+            WHEN NO_DATA_FOUND THEN
+                fecha := NULL; -- Asignamos un valor por defecto si no se encuentra fecha
+                cantidad := 0; -- Asignamos 0 si no se encuentra la película
+                precioPago := 3000; -- Asignamos 0 si no se encuentra el precio
+        END;
+
+        IF cantidad < 1 AND (fecha IS NULL OR fecha < SYSDATE) THEN
             :NEW.fechaRenta := SYSDATE;
             :NEW.dias := 30;
             :NEW.fechaExpiracion := ADD_MONTHS(SYSDATE, 1);
             :NEW.pago := precioPago;
         ELSE
-            RAISE_APPLICATION_ERROR(-20002, 'Esta película ya se encuentra en su catálogo o la renta no ha expirado.');
+            RAISE_APPLICATION_ERROR(-20002, 'Esta película ya se encuentra en su catalogo o la renta no ha expirado.');
         END IF;
     ELSE
         RAISE_APPLICATION_ERROR(-20003, 'No se ha proporcionado ni idSerie ni idPelicula.');
@@ -253,7 +275,7 @@ BEGIN
         IF v_pelicula IS NOT NULL AND fecha > SYSDATE THEN
             :NEW.idPelicula := v_pelicula;
         ELSE
-            RAISE_APPLICATION_ERROR (-20001, 'Esta película no está en su catálogo o ya ha pasado la fecha de expiración.');
+            RAISE_APPLICATION_ERROR (-20001, 'Esta pelicula no esta en su catalogo o ya ha pasado la fecha de expiracion.');
         END IF;
     END IF;
 END;
@@ -277,7 +299,7 @@ BEGIN
         IF v_serie IS NOT NULL AND fecha > SYSDATE THEN
             :NEW.idSerie := v_serie;
         ELSE
-            RAISE_APPLICATION_ERROR (-20001, 'Esta serie no está en su catálogo o ya ha pasado la fecha de expiración.');
+            RAISE_APPLICATION_ERROR (-20001, 'Esta serie no esta en su catalogo o ya ha pasado la fecha de expiracion.');
         END IF;
     END IF;
 END;
