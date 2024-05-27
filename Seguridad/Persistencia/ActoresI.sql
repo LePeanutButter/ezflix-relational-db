@@ -1,5 +1,5 @@
 CREATE OR REPLACE PACKAGE BODY PA_Cliente AS
-    PROCEDURE adicionarCuenta(p_nombre IN VARCHAR2, p_correo IN VARCHAR2, p_contrasena IN VARCHAR2, p_telefono IN NUMBER) AS
+    PROCEDURE adicionarCuenta(p_nombre IN VARCHAR2, p_correo IN VARCHAR2, p_contrasena IN VARCHAR2, p_telefono IN CHAR) AS
     BEGIN
         IF p_nombre IS NOT NULL AND p_correo IS NOT NULL AND p_contrasena IS NOT NULL AND p_telefono IS NOT NULL THEN
             INSERT INTO Cuentas (nombre, correo, contrasena, telefono) VALUES (p_nombre, p_correo, p_contrasena, p_telefono);
@@ -10,6 +10,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Cliente AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END adicionarCuenta;
     
     PROCEDURE adicionarMetodosDePago(nombreCuenta IN VARCHAR2, p_numero IN NUMBER, p_nombre IN VARCHAR2, p_cvv IN NUMBER, p_fechaExpiracion IN DATE) AS
@@ -50,12 +51,11 @@ CREATE OR REPLACE PACKAGE BODY PA_Cliente AS
         p_idCuenta Cuentas.id%TYPE;
         p_idOperacion Operaciones.id%TYPE;
     BEGIN
-        SELECT idPelicula, idSerie INTO p_idPelicula, p_idSerie FROM Versiones WHERE nombreContenido = nombreContenido;
+        SELECT idPelicula, idSerie INTO p_idPelicula, p_idSerie FROM Versiones WHERE nombre = nombreContenido;
         SELECT id INTO p_idCuenta FROM Cuentas WHERE nombre = nombreCuenta;
         
-        IF p_idPelicula IS NOT NULL AND p_idCuenta IS NOT NULL THEN
+        IF (p_idPelicula IS NOT NULL OR p_idSerie IS NOT NULL) AND p_idCuenta IS NOT NULL THEN
             INSERT INTO Operaciones(idCuenta) VALUES (p_idCuenta) RETURNING id INTO p_idOperacion;
-            
             IF tipoOperacion = 'Compra' THEN
                 IF p_idPelicula IS NOT NULL THEN
                     INSERT INTO Compras(idOperacion, idPelicula) VALUES (p_idOperacion, p_idPelicula);
@@ -147,7 +147,7 @@ END cifrado;
 /
 
 CREATE OR REPLACE PACKAGE BODY PA_Soporte AS
-    PROCEDURE adicionarCuenta(p_nombre IN VARCHAR2, p_correo IN VARCHAR2, p_contrasena IN VARCHAR2, p_telefono IN NUMBER) AS
+    PROCEDURE adicionarCuenta(p_nombre IN VARCHAR2, p_correo IN VARCHAR2, p_contrasena IN VARCHAR2, p_telefono IN CHAR) AS
     BEGIN
         IF p_nombre IS NOT NULL AND p_correo IS NOT NULL AND p_contrasena IS NOT NULL AND p_telefono IS NOT NULL THEN
             INSERT INTO Cuentas (nombre, correo, contrasena, telefono) VALUES (p_nombre, p_correo, p_contrasena, p_telefono);
@@ -171,7 +171,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Soporte AS
         SELECT id, nombre, correo, contrasena, telefono, fechaCreacion INTO v_id, v_nombre, v_correo, v_contrasena, v_telefono, v_fechaCreacion FROM Cuentas;
     END consultarCuenta;
 
-    PROCEDURE modificarCuenta(p_nombre IN VARCHAR2, p_correo IN VARCHAR2, p_contrasena IN VARCHAR2, p_telefono IN NUMBER) AS
+    PROCEDURE modificarCuenta(p_nombre IN VARCHAR2, p_correo IN VARCHAR2, p_contrasena IN VARCHAR2, p_telefono IN CHAR) AS
     BEGIN
         IF p_nombre IS NOT NULL AND p_correo IS NOT NULL THEN
             IF p_contrasena IS NOT NULL THEN
@@ -301,12 +301,11 @@ CREATE OR REPLACE PACKAGE BODY PA_Soporte AS
         p_idCuenta Cuentas.id%TYPE;
         p_idOperacion Operaciones.id%TYPE;
     BEGIN
-        SELECT idPelicula, idSerie INTO p_idPelicula, p_idSerie FROM Versiones WHERE nombreContenido = nombreContenido;
+        SELECT idPelicula, idSerie INTO p_idPelicula, p_idSerie FROM Versiones WHERE nombre = nombreContenido;
         SELECT id INTO p_idCuenta FROM Cuentas WHERE nombre = nombreCuenta;
         
-        IF p_idPelicula IS NOT NULL AND p_idCuenta IS NOT NULL THEN
+        IF (p_idPelicula IS NOT NULL OR p_idSerie IS NOT NULL) AND p_idCuenta IS NOT NULL THEN
             INSERT INTO Operaciones(idCuenta) VALUES (p_idCuenta) RETURNING id INTO p_idOperacion;
-            
             IF tipoOperacion = 'Compra' THEN
                 IF p_idPelicula IS NOT NULL THEN
                     INSERT INTO Compras(idOperacion, idPelicula) VALUES (p_idOperacion, p_idPelicula);
