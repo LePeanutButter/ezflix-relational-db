@@ -1,3 +1,4 @@
+-- Ciclo Uno
 CREATE TABLE Peliculas(
     id CHAR(20) NOT NULL,
     director VARCHAR2(20) NOT NULL,
@@ -121,4 +122,16 @@ CREATE TABLE MetodosDePago(
     nombre VARCHAR2(20) NOT NULL,
     cvv NUMBER(3) NOT NULL,
     fechaExpiracion DATE NOT NULL
+);
+
+-- Ciclo Dos
+CREATE TABLE GestoresDeAvisos(
+    id CHAR(9) NOT NULL,
+    idRenta CHAR(20),
+    tipoAviso VARCHAR2(12) NOT NULL,
+    fechaCreacion DATE NOT NULL,
+    mensaje VARCHAR2(100) NOT NULL,
+    estadoAviso VARCHAR2(10) NOT NULL,
+    estadoAlerta VARCHAR2(10) NOT NULL,
+    destinatario VARCHAR2(14) NOT NULL
 );

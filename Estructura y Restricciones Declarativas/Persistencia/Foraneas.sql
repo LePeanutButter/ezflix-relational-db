@@ -1,3 +1,4 @@
+-- Ciclo Uno
 ALTER TABLE Peliculas ADD CONSTRAINT FK_Peliculas_distribuidor FOREIGN KEY (distribuidor) REFERENCES Distribuidores(nombre);
 ALTER TABLE Series ADD CONSTRAINT FK_Series_distribuidor FOREIGN KEY (distribuidor) REFERENCES Distribuidores(nombre);
 ALTER TABLE Episodios ADD CONSTRAINT FK_Episodios_idSerie FOREIGN KEY (idSerie) REFERENCES Series(id);
@@ -21,3 +22,6 @@ ALTER TABLE Rentas ADD CONSTRAINT FK_Rentas_idPelicula FOREIGN KEY (idPelicula) 
 ALTER TABLE Rentas ADD CONSTRAINT FK_Rentas_idSerie FOREIGN KEY (idSerie) REFERENCES Series(id);
 ALTER TABLE Auditorias ADD CONSTRAINT FK_Auditorias_idOperacion FOREIGN KEY (idOperacion) REFERENCES Operaciones(id);
 ALTER TABLE MetodosDePago ADD CONSTRAINT FK_MetodosDePago_idCuenta FOREIGN KEY (idCuenta) REFERENCES Cuentas(id);
+
+-- Ciclo Dos
+ALTER TABLE GestoresDeAvisos ADD CONSTRAINT FK_GestoresDeAvisos_idRenta FOREIGN KEY (idRenta) REFERENCES Rentas (idOperacion);
