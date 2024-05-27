@@ -1,3 +1,4 @@
+-- Ciclo Uno
 CREATE OR REPLACE TRIGGER TG_Peliculas_BI
 BEFORE INSERT ON Peliculas
 FOR EACH ROW
@@ -338,5 +339,28 @@ BEGIN
         WHERE Operaciones.id = :NEW.idOperacion
     )
     AND :NEW.fechaExpiracion < SYSDATE;
+END;
+/
+
+-- Ciclo Dos
+CREATE OR REPLACE TRIGGER TG_Rentas_AI
+AFTER INSERT ON Rentas
+FOR EACH ROW
+DECLARE
+    t_id CHAR(9);
+BEGIN
+    t_id := 'I' || DBMS_RANDOM.string('X', 8);
+    INSERT INTO GestoresDeAvisos(id, idRenta, tipoAviso, fechaCreacion, mensaje, estadoAviso, estadoAlerta, destinatario) VALUES (t_id, :NEW.idOperacion, 'notificacion', SYSDATE, 'Se hizo una insercion en la tabla de Rentas', 'pendiente', 'activa', 'administrador');
+END;
+/
+
+CREATE OR REPLACE TRIGGER TG_Rentas_AD
+AFTER DELETE ON Rentas
+FOR EACH ROW
+DECLARE
+    t_id CHAR(9);
+BEGIN
+    t_id := 'I' || DBMS_RANDOM.string('X', 8);
+    INSERT INTO GestoresDeAvisos(id, idRenta, tipoAviso, fechaCreacion, mensaje, estadoAviso, estadoAlerta, destinatario) VALUES (t_id, :OLD.idOperacion, 'alerta', SYSDATE, 'Se eliminaron datos en la tabla de Rentas', 'pendiente', 'activa', 'administrador');
 END;
 /

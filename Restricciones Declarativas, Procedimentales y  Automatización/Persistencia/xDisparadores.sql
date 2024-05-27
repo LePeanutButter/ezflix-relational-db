@@ -1,3 +1,4 @@
+-- Ciclo Uno
 DROP TRIGGER TG_Peliculas_BI;
 DROP TRIGGER TG_Series_BI;
 DROP TRIGGER TG_Versiones_BI;
@@ -16,3 +17,7 @@ DROP TRIGGER TG_BibliotecasPeliculas_BI;
 DROP TRIGGER TG_BibliotecasSeries_BI;
 DROP TRIGGER TG_BibliotecasPeliculas_AUI;
 DROP TRIGGER TG_BibliotecasSeries_AUI;
+
+-- Ciclio Dos
+DROP TRIGGER TG_Rentas_AI;
+DROP TRIGGER TG_Rentas_AD;
