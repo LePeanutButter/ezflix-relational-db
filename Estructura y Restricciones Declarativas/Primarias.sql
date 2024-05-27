@@ -1,3 +1,4 @@
+-- Ciclo Uno
 ALTER TABLE Peliculas ADD CONSTRAINT PK_Peliculas_id PRIMARY KEY (id);
 ALTER TABLE Series ADD CONSTRAINT PK_Series_id PRIMARY KEY(id);
 ALTER TABLE Episodios ADD CONSTRAINT PK_Episodios_numeroEpisodio PRIMARY KEY (idSerie, numeroTemporada, numeroEpisodio);
@@ -15,3 +16,6 @@ ALTER TABLE Compras ADD CONSTRAINT PK_Compras_idOperacion PRIMARY KEY (idOperaci
 ALTER TABLE Rentas ADD CONSTRAINT PK_Rentas_idOperacion PRIMARY KEY (idOperacion);
 ALTER TABLE Auditorias ADD CONSTRAINT PK_Auditorias PRIMARY KEY (idOperacion, operacion, fechaOperacion);
 ALTER TABLE MetodosDePago ADD CONSTRAINT PK_MetodosDePago_numero PRIMARY KEY (numero, idCuenta);
+
+-- Ciclo Dos
+ALTER TABLE GestoresDeAvisos ADD CONSTRAINT PK_GestoresDeAvisos_id PRIMARY KEY (id);

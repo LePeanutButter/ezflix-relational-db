@@ -1,3 +1,4 @@
+-- Ciclo Uno
 DROP TABLE Episodios;
 DROP TABLE Versiones;
 DROP TABLE ContenidosAdicionales;
@@ -15,3 +16,6 @@ DROP TABLE Peliculas;
 DROP TABLE Series;
 DROP TABLE Distribuidores;
 DROP TABLE Cuentas;
+
+-- Ciclo Dos
+DROP TABLE GestoresDeAvisos;
