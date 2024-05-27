@@ -72,5 +72,5 @@ INSERT INTO MetodosDePago (idCuenta, numero, nombre, cvv, fechaExpiracion) VALUE
 INSERT INTO MetodosDePago (idCuenta, numero, nombre, cvv, fechaExpiracion) VALUES ('400000000000000002', 3537605219871229, 'Miguel', 200, TO_DATE('25/03/2028', 'DD/MM/YYYY'));
 INSERT INTO MetodosDePago (idCuenta, numero, nombre, cvv, fechaExpiracion) VALUES ('400000000000000003', 3579093062740021, 'Sofia', 300, TO_DATE('25/03/2028', 'DD/MM/YYYY'));
 
--- Ciclio Dos
+-- Ciclo Dos
 INSERT INTO GestoresDeAvisos(id, idRenta, tipoAviso, fechaCreacion, mensaje, estadoAviso, estadoAlerta ,destinatario) VALUES ('IASJ12890', 'alerta', TO_DATE('12/02/2005','DD/MM/YYYY'),'lorem ipsum', 'enviada', 'activas', 'administrador');
