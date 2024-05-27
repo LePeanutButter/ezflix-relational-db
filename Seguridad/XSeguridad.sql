@@ -1,70 +1,65 @@
 -- XPermisos
--- Cliente
-REVOKE INSERT ON Cuenta TO Cliente;
-REVOKE INSERT ON MetodosDePago TO Cliente;
-REVOKE INSERT ON Bibliotecas TO Cliente;
-REVOKE INSERT ON Operaciones TO Cliente;
-REVOKE SELECT ON Peliculas TO Cliente;
-REVOKE SELECT ON Series TO Cliente;
-REVOKE EXECUTE ON PA_Cliente TO Cliente;
+REVOKE INSERT ON Cuentas FROM ClienteEZFlix;
+REVOKE INSERT ON MetodosDePago FROM ClienteEZFlix;
+REVOKE INSERT ON Bibliotecas FROM ClienteEZFlix;
+REVOKE INSERT ON Operaciones FROM ClienteEZFlix;
+REVOKE SELECT ON Peliculas FROM ClienteEZFlix;
+REVOKE SELECT ON Series FROM ClienteEZFlix;
+REVOKE EXECUTE ON PA_Cliente FROM ClienteEZFlix;
 
--- Gerente
-REVOKE SELECT ON Episodios TO Gerente;
-REVOKE SELECT ON Versiones TO Gerente;
-REVOKE SELECT ON ContenidosAdicionales TO Gerente;
-REVOKE SELECT ON ActoresPeliculas TO Gerente;
-REVOKE SELECT ON ActoresSeries TO Gerente;
-REVOKE SELECT ON BibliotecasPeliculas TO Gerente;
-REVOKE SELECT ON BibliotecasSeries TO Gerente;
-REVOKE SELECT ON Bibliotecas TO Gerente;
-REVOKE SELECT ON Compras TO Gerente;
-REVOKE SELECT ON Rentas TO Gerente;
-REVOKE SELECT ON Auditorias TO Gerente;
-REVOKE SELECT ON MetodosDePago TO Gerente;
-REVOKE SELECT ON Operaciones TO Gerente;
-REVOKE SELECT ON Peliculas TO Gerente;
-REVOKE SELECT ON Series TO Gerente;
-REVOKE SELECT ON Distribuidores TO Gerente;
-REVOKE SELECT ON Cuentas TO Gerente;
-REVOKE EXECUTE ON PA_Gerente TO Gerente;
+REVOKE SELECT ON Episodios FROM GerenteEZFlix;
+REVOKE SELECT ON Versiones FROM GerenteEZFlix;
+REVOKE SELECT ON ContenidosAdicionales FROM GerenteEZFlix;
+REVOKE SELECT ON ActoresPeliculas FROM GerenteEZFlix;
+REVOKE SELECT ON ActoresSeries FROM GerenteEZFlix;
+REVOKE SELECT ON BibliotecasPeliculas FROM GerenteEZFlix;
+REVOKE SELECT ON BibliotecasSeries FROM GerenteEZFlix;
+REVOKE SELECT ON Bibliotecas FROM GerenteEZFlix;
+REVOKE SELECT ON Compras FROM GerenteEZFlix;
+REVOKE SELECT ON Rentas FROM GerenteEZFlix;
+REVOKE SELECT ON Auditorias FROM GerenteEZFlix;
+REVOKE SELECT ON MetodosDePago FROM GerenteEZFlix;
+REVOKE SELECT ON Operaciones FROM GerenteEZFlix;
+REVOKE SELECT ON Peliculas FROM GerenteEZFlix;
+REVOKE SELECT ON Series FROM GerenteEZFlix;
+REVOKE SELECT ON Distribuidores FROM GerenteEZFlix;
+REVOKE SELECT ON Cuentas FROM GerenteEZFlix;
+REVOKE EXECUTE ON PA_Gerente FROM GerenteEZFlix;
 
--- Auditor
-REVOKE SELECT ON Auditorias TO Auditor;
-REVOKE EXECUTE ON PA_Auditor TO Auditor;
+REVOKE SELECT ON Auditorias FROM AuditorEZFlix;
+REVOKE EXECUTE ON PA_Auditor FROM AuditorEZFlix;
 
--- Soporte
-REVOKE ALL PRIVILEGES Cuentas TO Soporte;
-REVOKE ALL PRIVILEGES MetodosDePago TO Soporte;
-REVOKE ALL PRIVILEGES ON Bibliotecas TO Soporte;
-REVOKE INSERT, UPDATE, DELETE ON Operaciones TO Soporte;
-REVOKE EXECUTE ON PA_Soporte TO Soporte;
+REVOKE ALL PRIVILEGES ON Cuentas FROM SoporteEZFlix;
+REVOKE ALL PRIVILEGES ON MetodosDePago FROM SoporteEZFlix;
+REVOKE ALL PRIVILEGES ON Bibliotecas FROM SoporteEZFlix;
+REVOKE INSERT, UPDATE, DELETE ON Operaciones FROM SoporteEZFlix;
+REVOKE EXECUTE ON PA_Soporte FROM SoporteEZFlix;
 
--- Administrador
-REVOKE ALL PRIVILEGES ON Peliculas TO Administrador;
-REVOKE ALL PRIVILEGES ON Series TO Administrador;
-REVOKE ALL PRIVILEGES ON Distribuidores TO Administrador;
-REVOKE SELECT ON Operaciones TO Administrador;
-REVOKE SELECT ON Episodios TO Administrador;
-REVOKE SELECT ON Versiones TO Administrador;
-REVOKE SELECT ON ContenidosAdicionales TO Administrador;
-REVOKE SELECT ON ActoresPeliculas TO Administrador;
-REVOKE SELECT ON ActoresSeries TO Administrador;
-REVOKE SELECT ON BibliotecasPeliculas TO Administrador;
-REVOKE SELECT ON BibliotecasSeries TO Administrador;
-REVOKE SELECT ON Bibliotecas TO Administrador;
-REVOKE SELECT ON Compras TO Administrador;
-REVOKE SELECT ON Rentas TO Administrador;
-REVOKE SELECT ON Auditorias TO Administrador;
-REVOKE SELECT ON MetodosDePago TO Administrador;
-REVOKE SELECT ON Cuentas TO Administrador;
-REVOKE EXECUTE ON PA_Administrador TO Administrador;
+REVOKE ALL PRIVILEGES ON Peliculas FROM AdministradorEZFlix;
+REVOKE ALL PRIVILEGES ON ActoresPeliculas FROM AdministradorEZFlix;
+REVOKE ALL PRIVILEGES ON Series FROM AdministradorEZFlix;
+REVOKE ALL PRIVILEGES ON Episodios FROM AdministradorEZFlix;
+REVOKE ALL PRIVILEGES ON ActoresSeries FROM AdministradorEZFlix;
+REVOKE ALL PRIVILEGES ON Versiones FROM AdministradorEZFlix;
+REVOKE ALL PRIVILEGES ON Distribuidores FROM AdministradorEZFlix;
+REVOKE SELECT ON Operaciones FROM AdministradorEZFlix;
+REVOKE SELECT ON ContenidosAdicionales FROM AdministradorEZFlix;
+REVOKE SELECT ON BibliotecasPeliculas FROM AdministradorEZFlix;
+REVOKE SELECT ON BibliotecasSeries FROM AdministradorEZFlix;
+REVOKE SELECT ON Bibliotecas FROM AdministradorEZFlix;
+REVOKE SELECT ON Compras FROM AdministradorEZFlix;
+REVOKE SELECT ON Rentas FROM AdministradorEZFlix;
+REVOKE SELECT ON Auditorias FROM AdministradorEZFlix;
+REVOKE SELECT ON MetodosDePago FROM AdministradorEZFlix;
+REVOKE SELECT ON Cuentas FROM AdministradorEZFlix;
+REVOKE EXECUTE ON PA_Administrador FROM AdministradorEZFlix;
 
 -- XRoles
-DROP ROLE Cliente;
-DROP ROLE Soporte;
-DROP ROLE Auditor;
-DROP ROLE Administrador;
-DROP ROLE Gerente;
+DROP ROLE ClienteEZFlix;
+DROP ROLE SoporteEZFlix;
+DROP ROLE AuditorEZFlix;
+DROP ROLE AdministradorEZFlix;
+DROP ROLE GerenteEZFlix;
 
 -- XActores
 DROP PACKAGE PA_Cliente;
