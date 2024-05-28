@@ -42,18 +42,28 @@ CREATE OR REPLACE PACKAGE PC_Distribuidores AS
 END PC_Distribuidores;
 /
 
-CREATE OR REPLACE PACKAGE PC_Peliculas AS
+CREATE OR REPLACE PACKAGE PC_Peliculas_Version AS
     PROCEDURE Adicionar(
-        director IN VARCHAR2,
-        fechaLanzamiento IN DATE,
-        productora IN VARCHAR2,
-        precioCompra IN NUMBER,
-        precioRenta IN NUMBER,
-        duracion IN VARCHAR2,
-        distribuidor IN VARCHAR2
+        p_nombre IN VARCHAR2,
+        p_descripcion IN VARCHAR2,
+        p_categoria IN VARCHAR2,
+        p_edad IN NUMBER,
+        p_idioma IN VARCHAR2,
+        p_director IN VARCHAR2,
+        p_fechaLanzamiento IN DATE,
+        p_productora IN VARCHAR2,
+        p_precioCompra IN NUMBER,
+        p_precioRenta IN NUMBER,
+        p_duracion IN VARCHAR2,
+        p_distribuidor IN VARCHAR2
     );
     
     PROCEDURE Modificar(
+        p_nombre IN VARCHAR2,
+        p_descripcion IN VARCHAR2,
+        p_categoria IN VARCHAR2,
+        p_edad IN NUMBER,
+        p_idioma IN VARCHAR2,
         p_director IN VARCHAR2,
         p_fechaLanzamiento IN DATE,
         p_productora IN VARCHAR2,
@@ -65,6 +75,7 @@ CREATE OR REPLACE PACKAGE PC_Peliculas AS
     );
     
     PROCEDURE Eliminar(
+        p_idVersion IN VARCHAR2,
         p_id IN VARCHAR2
     );
     
@@ -72,7 +83,7 @@ CREATE OR REPLACE PACKAGE PC_Peliculas AS
         p_id IN VARCHAR2,
         resultado OUT SYS_REFCURSOR
     );
-END PC_Peliculas;
+END PC_Peliculas_Version;
 /
 
 CREATE OR REPLACE PACKAGE PC_Series AS
@@ -104,15 +115,15 @@ CREATE OR REPLACE PACKAGE PC_Series AS
 
 CREATE OR REPLACE PACKAGE PC_Bibliotecas AS
     PROCEDURE Adicionar(
-        p_idCuenta IN VARCHAR2,
+        p_nombreCuenta IN VARCHAR2,
         p_nombre IN VARCHAR2
     );
     PROCEDURE Modificar(
-        p_id IN VARCHAR2,
+        p_nombreCuenta IN VARCHAR2,
         p_nombre IN VARCHAR2
     );
     PROCEDURE Eliminar(
-        p_id IN VARCHAR2
+        p_nombre IN VARCHAR2
     );
     PROCEDURE Consultar(
         p_nombre IN VARCHAR2,
@@ -121,15 +132,14 @@ CREATE OR REPLACE PACKAGE PC_Bibliotecas AS
 END PC_Bibliotecas;
 /
 
-CREATE OR REPLACE PACKAGE PC_Compras AS
+CREATE OR REPLACE PACKAGE PC_Operacion_Compra AS
     PROCEDURE Adicionar(
-        p_idOperacion IN CHAR,
-        p_idPelicula IN CHAR,
-        p_idSerie IN CHAR,
+        p_nombreCuenta IN VARCHAR2,
+        p_nombrePelicula IN VARCHAR2,
         p_pago IN NUMBER
     );
     PROCEDURE Modificar(
-        p_IdOperacion IN CHAR,
+        p_idOperacion IN CHAR,
         p_pago IN NUMBER
     );
     
@@ -142,7 +152,74 @@ CREATE OR REPLACE PACKAGE PC_Compras AS
         resultado OUT SYS_REFCURSOR      
     );
     
-END PC_Compras;
+END PC_Operacion_Compra;
+/
+
+CREATE OR REPLACE PACKAGE PC_MetodoPago AS
+    PROCEDURE Adicionar(
+        p_nombreCuenta IN VARCHAR2,
+        p_numero IN NUMBER,
+        p_nombre IN VARCHAR2,
+        p_cvv IN NUMBER,
+        p_fechaExpiracion IN DATE
+    );
+    PROCEDURE Modificar(
+        p_nombreCuenta IN VARCHAR2,
+        p_numero IN NUMBER,
+        p_nombre IN VARCHAR2,
+        p_cvv IN NUMBER,
+        p_fechaExpiracion IN DATE
+    );
+    
+    PROCEDURE Eliminar(
+        p_nombreCuenta IN CHAR,
+        p_numero IN NUMBER
+    );
+    
+    PROCEDURE Consultar(
+        p_numero IN NUMBER,
+        resultado OUT SYS_REFCURSOR      
+    );
+    
+END PC_MetodoPago;
+/
+CREATE OR REPLACE PACKAGE PC_BibliotecasPeliculas AS
+    PROCEDURE Adicionar(
+        p_nombreBiblioteca IN VARCHAR2,
+        p_nombrePelicula IN VARCHAR2
+    );
+    
+    PROCEDURE Eliminar(
+        p_nombreBiblioteca IN VARCHAR2,
+        p_nombrePelicula IN VARCHAR2
+    );
+    
+    PROCEDURE Consultar(
+        p_nombreBiblioteca IN VARCHAR2,
+        resultado OUT SYS_REFCURSOR  
+    );
+END PC_BibliotecasPeliculas;
+/
+
+CREATE OR REPLACE PACKAGE PC_GestoresDeAvisos AS
+    PROCEDURE Adicionar(
+        idRenta IN VARCHAR2,
+        tipoAviso IN VARCHAR2,
+        fechaCreacion IN DATE,
+        mensaje IN VARCHAR2,
+        estadoAviso IN VARCHAR2,
+        estadoAlerta IN VARCHAR2,
+        destinatario IN VARCHAR2
+    );
+    PROCEDURE Modificar(
+        id IN VARCHAR2,
+        estadoAviso IN VARCHAR2,
+        estadoAlerta IN VARCHAR2
+    );
+    PROCEDURE Eliminar(
+        id IN VARCHAR2
+    );
+END PC_GestoresDeAvisos;
 /
 
 
