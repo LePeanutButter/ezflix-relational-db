@@ -561,7 +561,7 @@ CREATE OR REPLACE PACKAGE BODY PC_GestoresDeAvisos AS
         p_destinatario IN VARCHAR2
     ) IS
     BEGIN 
-        INSERT INTO gestorDeAvisos(idRenta, tipoAviso, fechaCreacion, mensaje, estadoAviso, estadoAlerta, destinatario) 
+        INSERT INTO GestoresDeAvisos(idRenta, tipoAviso, fechaCreacion, mensaje, estadoAviso, estadoAlerta, destinatario) 
         VALUES (p_idRenta, p_tipoAviso, p_fechaCreacion, p_mensaje, p_estadoAviso, p_estadoAlerta, p_destinatario);
         COMMIT;
     EXCEPTION
@@ -576,7 +576,7 @@ CREATE OR REPLACE PACKAGE BODY PC_GestoresDeAvisos AS
         p_estadoAlerta IN VARCHAR2
     ) IS
     BEGIN 
-        UPDATE gestorDeAvisos
+        UPDATE GestoresDeAvisos
         SET estadoAviso = p_estadoAviso, estadoAlerta = p_estadoAlerta
         WHERE id = p_id;
         COMMIT;
@@ -590,7 +590,7 @@ CREATE OR REPLACE PACKAGE BODY PC_GestoresDeAvisos AS
         p_id IN VARCHAR2
     ) IS
     BEGIN 
-        DELETE FROM gestorDeAvisos WHERE id = p_id;
+        DELETE FROM GestoresDeAvisos WHERE id = p_id;
         COMMIT;
     EXCEPTION
         WHEN OTHERS THEN

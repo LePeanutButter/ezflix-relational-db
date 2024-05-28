@@ -112,6 +112,9 @@ CREATE OR REPLACE PACKAGE PC_Series AS
         p_id IN VARCHAR2,
         resultado OUT SYS_REFCURSOR
     );
+    
+END PC_Series;
+/
 
 CREATE OR REPLACE PACKAGE PC_Bibliotecas AS
     PROCEDURE Adicionar(
@@ -203,21 +206,21 @@ END PC_BibliotecasPeliculas;
 
 CREATE OR REPLACE PACKAGE PC_GestoresDeAvisos AS
     PROCEDURE Adicionar(
-        idRenta IN VARCHAR2,
-        tipoAviso IN VARCHAR2,
-        fechaCreacion IN DATE,
-        mensaje IN VARCHAR2,
-        estadoAviso IN VARCHAR2,
-        estadoAlerta IN VARCHAR2,
-        destinatario IN VARCHAR2
+        p_idRenta IN VARCHAR2,
+        P_tipoAviso IN VARCHAR2,
+        p_fechaCreacion IN DATE,
+        p_mensaje IN VARCHAR2,
+        p_estadoAviso IN VARCHAR2,
+        p_estadoAlerta IN VARCHAR2,
+        p_destinatario IN VARCHAR2
     );
     PROCEDURE Modificar(
-        id IN VARCHAR2,
-        estadoAviso IN VARCHAR2,
-        estadoAlerta IN VARCHAR2
+        p_id IN VARCHAR2,
+        p_estadoAviso IN VARCHAR2,
+        p_estadoAlerta IN VARCHAR2
     );
     PROCEDURE Eliminar(
-        id IN VARCHAR2
+        p_id IN VARCHAR2
     );
 END PC_GestoresDeAvisos;
 /
