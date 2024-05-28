@@ -61,3 +61,24 @@ BEGIN
     PC_Peliculas_Version.Adicionar('Pretty Sweet', 'nulla pede ullamcorper augue a suscipit', 'Aventura', 18, 'Francais', 'Hinze', SYSDATE, 'Benedict', 30000, 5000, '02:00:00', 'Warner');
     PC_Peliculas_Version.Adicionar('xXx', 'vestibulum ante ipsum primis in faucibus orci', 'Documental', 18, 'English', 'Quill', SYSDATE, 'Osmond', 10000, 15000, '01:00:00', 'Paramount');
 END;
+
+
+
+/*
+Historia 2:
+    Samuel es un coleccionista de peliculas el cual decidio crearse una cuenta en EZFlix para de esta forma poder acceder a su coleccion de una forma mas accesible, asi que decidio comprarse todas las sagas 
+    de Star Trek: The Motion Picture, Planet of the Apes, Matrix, Cloverfield, The Lord of the Rings, The Godfather y The Batman(2021); para poder comprar estas peliculas asocio una tarjeta de
+    credito American Express a su cuenta. Creo una biblioteca para todas las peliculas dirigidas por Matt Reeves. Posteriormente la empresa no pudo renovar su contrato con Warner Bros. Entertainment Inc. 
+*/
+BEGIN
+    PC_
+    PC_Peliculas_Version.Adicionar('Star Trek', 'Admiral James T. Kirk resumes command of the overhauled USS Enterprise.', 'Ciencia Ficcion', 13, 'English','Robert Wise', TO_DATE('07/12/1979', 'DD/MM/YYYY'), 'Gene Roddenberry', 20000, 10000, '02:23:00', 'Paramount');
+    PC_Peliculas_Version.Adicionar('Planet Of The Apes', 'The fragile peace between apes and humans is threatened.', 'Ciencia Ficcion', 13, 'English', 'Matt Reeves', TO_DATE('05/08/2014', 'DD/MM/YYYY'), 'Peter Chernin', 40000, 25000, '02:10:00', 'Fox');
+    PC_Peliculas_Version.Adicionar('Matrix', 'When a beautiful stranger leads computer hacker Neo to a forbidding underworld.', 'Ciencia Ficcion', 16, 'English', 'Wachowski', TO_DATE('31/03/1999', 'DD/MM/YYYY'), 'Joel Silver', 50000, 30000, '02:16:00', 'Warner');
+    PC_Peliculas_Version.Adicionar('Cloverfield', 'A group of friends venture deep into the streets of New York on a rescue mission.', 'Suspenso', 13, 'English','Matt Reeves', TO_DATE('18/01/2008', 'DD/MM/YYYY'), 'Bad Robot', 15000, 5000, '01:25:00', 'Paramount');
+    PC_Peliculas_Version.Adicionar('Lord Of The Rings', 'A meek Hobbit from the Shire and eight companions set out on a journey.', 'Fantasia', 13, 'English','Peter Jackson', TO_DATE('10/12/2001', 'DD/MM/YYYY'), 'New Line', 80000, 60000, '02:58:00', 'Warner');
+    PC_Peliculas_Version.Adicionar('The Godfather', 'The aging patriarch of an organized crime dynasty.', 'Drama', 18, 'English','Francis Ford', TO_DATE('24/03/1972', 'DD/MM/YYYY'), '	Albert S.', 80000, 50000, '02:55:00', 'Paramount');
+    PC_Peliculas_Version.Adicionar('The Batman', 'The Batman is forced to investigate the citys hidden corruption.', 'Drama', 13, 'English','Matt Reeves' TO_DATE('04/03/2022', 'DD/MM/YYYY'), 'Dylan Clark', 40000, 30000, '02:56:00', 'Warner.');
+    PC_MetodoPago.Adicionar()
+    PC_Distribuidores.Eliminar
+END;
