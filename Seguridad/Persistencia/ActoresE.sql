@@ -21,7 +21,7 @@ END PA_Auditor;
 CREATE OR REPLACE PACKAGE PA_Soporte AS
     PROCEDURE adicionarCuenta(p_nombre IN VARCHAR2, p_correo IN VARCHAR2, p_contrasena IN VARCHAR2, p_telefono IN CHAR);
     PROCEDURE consultarCuenta;
-    PROCEDURE modificarCuenta(p_nombre IN VARCHAR2, p_correo IN VARCHAR2, p_contrasena IN VARCHAR2, p_telefono IN CHAR);
+    PROCEDURE modificarCuenta(p_nombre IN VARCHAR2, p_contrasena IN VARCHAR2, p_telefono IN CHAR);
     PROCEDURE eliminarCuenta(p_nombre IN VARCHAR2, p_correo IN VARCHAR2);
     PROCEDURE adicionarMetodosDePago(nombreCuenta IN VARCHAR2, p_numero IN NUMBER, p_nombre IN VARCHAR2, p_cvv IN NUMBER, p_fechaExpiracion IN DATE);
     PROCEDURE consultarMetodosDePago;

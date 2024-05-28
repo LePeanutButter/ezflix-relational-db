@@ -27,6 +27,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Cliente AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END adicionarMetodosDePago;
 
     PROCEDURE adicionarBibliotecas(p_nombre IN VARCHAR2, nombreCuenta IN VARCHAR2) AS
@@ -43,6 +44,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Cliente AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END adicionarBibliotecas;
 
     PROCEDURE adicionarOperacion(nombreCuenta IN VARCHAR2, nombreContenido IN VARCHAR2, tipoOperacion IN VARCHAR2) AS
@@ -78,6 +80,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Cliente AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END adicionarOperacion;
 
     PROCEDURE consultarPeliculas AS
@@ -158,6 +161,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Soporte AS
         EXCEPTION
             WHEN OTHERS THEN
                 ROLLBACK;
+                RAISE;
     END adicionarCuenta;
 
     PROCEDURE consultarCuenta AS
@@ -171,21 +175,22 @@ CREATE OR REPLACE PACKAGE BODY PA_Soporte AS
         SELECT id, nombre, correo, contrasena, telefono, fechaCreacion INTO v_id, v_nombre, v_correo, v_contrasena, v_telefono, v_fechaCreacion FROM Cuentas;
     END consultarCuenta;
 
-    PROCEDURE modificarCuenta(p_nombre IN VARCHAR2, p_correo IN VARCHAR2, p_contrasena IN VARCHAR2, p_telefono IN CHAR) AS
+    PROCEDURE modificarCuenta(p_nombre IN VARCHAR2, p_contrasena IN VARCHAR2, p_telefono IN CHAR) AS
     BEGIN
-        IF p_nombre IS NOT NULL AND p_correo IS NOT NULL THEN
+        IF p_nombre IS NOT NULL THEN
             IF p_contrasena IS NOT NULL THEN
-                UPDATE Cuentas SET contrasena = cifrado(p_contrasena) WHERE nombre = p_nombre AND correo = p_correo;
+                UPDATE Cuentas SET contrasena = cifrado(p_contrasena) WHERE nombre = p_nombre;
             ELSIF p_telefono IS NOT NULL THEN
-                UPDATE Cuentas SET telefono = p_telefono WHERE nombre = p_nombre AND correo = p_correo;
+                UPDATE Cuentas SET telefono = p_telefono WHERE nombre = p_nombre;
             ELSIF p_contrasena IS NOT NULL AND p_telefono IS NOT NULL THEN
-                UPDATE Cuentas SET contrasena = cifrado(p_contrasena), telefono = p_telefono WHERE nombre = p_nombre AND correo = p_correo;
+                UPDATE Cuentas SET contrasena = cifrado(p_contrasena), telefono = p_telefono WHERE nombre = p_nombre;
             END IF;
             COMMIT;
         END IF;
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END modificarCuenta;
 
     PROCEDURE eliminarCuenta(p_nombre IN VARCHAR2, p_correo IN VARCHAR2) AS
@@ -195,6 +200,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Soporte AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END eliminarCuenta;
 
     PROCEDURE adicionarMetodosDePago(nombreCuenta IN VARCHAR2, p_numero IN NUMBER, p_nombre IN VARCHAR2, p_cvv IN NUMBER, p_fechaExpiracion IN DATE) AS
@@ -210,6 +216,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Soporte AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END adicionarMetodosDePago;
 
     PROCEDURE consultarMetodosDePago AS
@@ -233,6 +240,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Soporte AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END modificarMetodosDePago;
 
     PROCEDURE eliminarMetodosDePago(nombreCuenta IN VARCHAR2, p_numero IN NUMBER) AS
@@ -244,6 +252,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Soporte AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END eliminarMetodosDePago;
 
     PROCEDURE adicionarBiblioteca(p_nombre IN VARCHAR2, nombreCuenta IN VARCHAR2) AS
@@ -260,6 +269,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Soporte AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END adicionarBiblioteca;
 
     PROCEDURE consultarBiblioteca AS
@@ -282,6 +292,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Soporte AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END modificarBiblioteca;
 
     PROCEDURE eliminarBiblioteca(nombreCuenta IN VARCHAR2, p_nombre IN NUMBER) AS
@@ -293,6 +304,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Soporte AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END eliminarBiblioteca;
 
     PROCEDURE adicionarOperacion(nombreCuenta IN VARCHAR2, nombreContenido IN VARCHAR2, tipoOperacion IN VARCHAR2) AS
@@ -328,6 +340,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Soporte AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END adicionarOperacion;
 
     PROCEDURE eliminarOperacion(nombreCuenta IN VARCHAR2, nombreContenido IN VARCHAR2, tipoOperacion IN VARCHAR2) AS
@@ -355,7 +368,8 @@ CREATE OR REPLACE PACKAGE BODY PA_Soporte AS
         COMMIT;
     EXCEPTION
         WHEN OTHERS THEN
-            ROLLBACK;    
+            ROLLBACK; 
+            RAISE;   
     END eliminarOperacion;
 END PA_Soporte;
 /
@@ -370,6 +384,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Administrador AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END insertarPelicula;
     
     PROCEDURE modificarPelicula(nombreAntiguo IN VARCHAR2, p_nombre IN VARCHAR2, p_idioma IN VARCHAR2, p_categoria IN VARCHAR2, p_descripcion IN VARCHAR2, p_edad IN NUMBER, p_director IN VARCHAR2, p_fechaLanzamiento IN DATE, p_productora IN VARCHAR2, p_precioCompra IN NUMBER, p_precioRenta IN NUMBER, p_duracion IN VARCHAR2, p_distribuidor IN VARCHAR2) AS
@@ -382,6 +397,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Administrador AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END modificarPelicula;
 
     PROCEDURE eliminarPelicula(p_nombre IN VARCHAR2) AS
@@ -393,6 +409,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Administrador AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END eliminarPelicula;
 
     PROCEDURE insertarSerie(p_nombre IN VARCHAR2, p_idioma IN VARCHAR2, p_categoria IN VARCHAR2, p_descripcion IN VARCHAR2, p_edad IN NUMBER, p_director IN VARCHAR2, p_fechaLanzamiento IN DATE, p_productora IN VARCHAR2, p_precioCompra IN NUMBER, p_precioRenta IN NUMBER, p_distribuidor IN VARCHAR2) AS
@@ -404,6 +421,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Administrador AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END insertarSerie;
 
     PROCEDURE modificarSerie(nombreAntiguo IN VARCHAR2, p_nombre IN VARCHAR2, p_idioma IN VARCHAR2, p_categoria IN VARCHAR2, p_descripcion IN VARCHAR2, p_edad IN NUMBER, p_director IN VARCHAR2, p_fechaLanzamiento IN DATE, p_productora IN VARCHAR2, p_precioCompra IN NUMBER, p_precioRenta IN NUMBER, p_distribuidor IN VARCHAR2) AS
@@ -416,6 +434,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Administrador AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END modificarSerie;
 
     PROCEDURE eliminarSerie(p_nombre IN VARCHAR2) AS
@@ -427,6 +446,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Administrador AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END eliminarSerie;
 
     PROCEDURE insertarDistribuidor(p_nombre IN VARCHAR2) AS
@@ -436,6 +456,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Administrador AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END insertarDistribuidor;
 
     PROCEDURE modificarDistribuidor(nombreAntiguo IN VARCHAR2, p_nombre IN VARCHAR2) AS
@@ -445,6 +466,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Administrador AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END modificarDistribuidor;
 
     PROCEDURE eliminarDistribuidor(p_nombre IN VARCHAR2) AS
@@ -454,6 +476,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Administrador AS
     EXCEPTION
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END eliminarDistribuidor;
 
     FUNCTION consultarOperaciones RETURN NUMBER IS
@@ -466,6 +489,7 @@ CREATE OR REPLACE PACKAGE BODY PA_Administrador AS
             RETURN 0;
         WHEN OTHERS THEN
             ROLLBACK;
+            RAISE;
     END consultarOperaciones;
 
     PROCEDURE consultarBase(p_tabla IN VARCHAR2) AS

@@ -360,7 +360,7 @@ FOR EACH ROW
 DECLARE
     t_id CHAR(9);
 BEGIN
-    t_id := 'I' || DBMS_RANDOM.string('X', 8);
+    t_id := 'E' || DBMS_RANDOM.string('X', 8);
     INSERT INTO GestoresDeAvisos(id, idRenta, tipoAviso, fechaCreacion, mensaje, estadoAviso, estadoAlerta, destinatario) VALUES (t_id, :OLD.idOperacion, 'alerta', SYSDATE, 'Se eliminaron datos en la tabla de Rentas', 'pendiente', 'activa', 'administrador');
 END;
 /
