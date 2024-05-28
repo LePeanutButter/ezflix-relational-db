@@ -1,6 +1,9 @@
 DROP PACKAGE PC_Cuentas;
 DROP PACKAGE PC_Distribuidores;
-DROP PACKAGE PC_Peliculas;
+DROP PACKAGE PC_Peliculas_Version;
 DROP PACKAGE PC_Series;
 DROP PACKAGE PC_Bibliotecas;
-DROP PACKAGE PC_Compras;
+DROP PACKAGE PC_Operacion_Compra;
+DROP PACKAGE PC_MetodoPago;
+DROP PACKAGE PC_BibliotecasPeliculas;
+DROP PACKAGE PC_GestoresDeAvisos;

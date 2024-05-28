@@ -1,0 +1,592 @@
+--Peliculas
+<Peliculas>
+  <Pelicula>
+    <nombre>Gladiator</nombre>
+    <descripcion>suspendisse potenti cras in purus</descripcion>
+    <Categoria>Aventura</Categoria>
+    <edad>18</edad>
+    <Idioma>Espanol</Idioma>
+    <director>Samuel</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Alexandre</productor>
+    <precioCompra>20000</precioCompra>
+    <precioRenta>5000</precioRenta>
+    <duracion>02:04:00</duracion>
+    <ditribuidor>Warner</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>The Death and Life of Bobby Z</nombre>
+    <descripcion>pede ac diam cras pellentesque volutpat</descripcion>
+    <Categoria>Comedia</Categoria>
+    <edad>15</edad>
+    <Idioma>Francais</Idioma>
+    <director>Andros</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Beau</productor>
+    <precioCompra>30000</precioCompra>
+    <precioRenta>5000</precioRenta>
+    <duracion>01:00:00</duracion>
+    <ditribuidor>Paramount</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>I Was a Male War Bride</nombre>
+    <descripcion>nisi vulputate nonummy maecenas tincidunt</descripcion>
+    <Categoria>Documental</Categoria>
+    <edad>18</edad>
+    <Idioma>Francais</Idioma>
+    <director>Jdavie</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Daffi</productor>
+    <precioCompra>20000</precioCompra>
+    <precioRenta>10000</precioRenta>
+    <duracion>01:00:00</duracion>
+    <ditribuidor>Fox</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>If a Man Answers</nombre>
+    <descripcion>in sagittis dui vel nisl duis ac nibh fusce</descripcion>
+    <Categoria>Comedia</Categoria>
+    <edad>18</edad>
+    <Idioma>Portugues</Idioma>
+    <director>Armstrong</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Shirl</productor>
+    <precioCompra>10000</precioCompra>
+    <precioRenta>15000</precioRenta>
+    <duracion>01:50:00</duracion>
+    <ditribuidor>Fox</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Rat Race, The (Garson Kanin's The Rat Race)</nombre>
+    <descripcion>nec condimentum neque sapien placerat ante nulla justo</descripcion>
+    <Categoria>Drama</Categoria>
+    <edad>13</edad>
+    <Idioma>Espanol</Idioma>
+    <director>Guthry</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Malissa</productor>
+    <precioCompra>20000</precioCompra>
+    <precioRenta>5000</precioRenta>
+    <duracion>02:04:00</duracion>
+    <ditribuidor>Fox</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Way Home, The (Jibeuro)</nombre>
+    <descripcion>turpis sed ante vivamus tortor duis mattis egestas</descripcion>
+    <Categoria>Comedia</Categoria>
+    <edad>15</edad>
+    <Idioma>Portugues</Idioma>
+    <director>Quint</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Rory</productor>
+    <precioCompra>10000</precioCompra>
+    <precioRenta>10000</precioRenta>
+    <duracion>02:04:00</duracion>
+    <ditribuidor>Fox</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Abominable</nombre>
+    <descripcion>amet justo morbi ut odio cras mi pede</descripcion>
+    <Categoria>Documental</Categoria>
+    <edad>15</edad>
+    <Idioma>Espanol</Idioma>
+    <director>Gunther</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Neile</productor>
+    <precioCompra>30000</precioCompra>
+    <precioRenta>15000</precioRenta>
+    <duracion>02:04:00</duracion>
+    <ditribuidor>Fox</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Suicide Manual (Jisatsu manyaru)</nombre>
+    <descripcion>ipsum primis in faucibus orci luctus et ultrices posuere</descripcion>
+    <Categoria>Aventura</Categoria>
+    <edad>15</edad>
+    <Idioma>Espanol</Idioma>
+    <director>Ware</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Kikelia</productor>
+    <precioCompra>30000</precioCompra>
+    <precioRenta>10000</precioRenta>
+    <duracion>02:00:00</duracion>
+    <ditribuidor>Paramount</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Keep Your Distance</nombre>
+    <descripcion>eu orci mauris lacinia sapien quis libero</descripcion>
+    <Categoria>Aventura</Categoria>
+    <edad>15</edad>
+    <Idioma>English</Idioma>
+    <director>Augusto</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Shauna</productor>
+    <precioCompra>20000</precioCompra>
+    <precioRenta>10000</precioRenta>
+    <duracion>01:50:00</duracion>
+    <ditribuidor>Paramount</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Adopted</nombre>
+    <descripcion>lorem integer tincidunt ante vel</descripcion>
+    <Categoria>Documental</Categoria>
+    <edad>15</edad>
+    <Idioma>English</Idioma>
+    <director>Erin</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Ramsey</productor>
+    <precioCompra>20000</precioCompra>
+    <precioRenta>15000</precioRenta>
+    <duracion>01:50:00</duracion>
+    <ditribuidor>Paramount</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Support Your Local Sheriff!</nombre>
+    <descripcion>non mauris morbi non lectus aliquam</descripcion>
+    <Categoria>Drama</Categoria>
+    <edad>18</edad>
+    <Idioma>Francais</Idioma>
+    <director>Jerry</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Brandyn</productor>
+    <precioCompra>20000</precioCompra>
+    <precioRenta>10000</precioRenta>
+    <duracion>01:00:00</duracion>
+    <ditribuidor>Warner</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Rape of Europa, The</nombre>
+    <descripcion>cras non velit nec nisi vulputate</descripcion>
+    <Categoria>Comedia</Categoria>
+    <edad>13</edad>
+    <Idioma>Espanol</Idioma>
+    <director>Gorden</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Mathias</productor>
+    <precioCompra>30000</precioCompra>
+    <precioRenta>5000</precioRenta>
+    <duracion>02:00:00</duracion>
+    <ditribuidor>Warner</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Few Good Men, A</nombre>
+    <descripcion>est phasellus sit amet erat nulla</descripcion>
+    <Categoria>Comedia</Categoria>
+    <edad>18</edad>
+    <Idioma>Francais</Idioma>
+    <director>Tulley</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Charil</productor>
+    <precioCompra>10000</precioCompra>
+    <precioRenta>15000</precioRenta>
+    <duracion>01:00:00</duracion>
+    <ditribuidor>Fox</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>State Fair</nombre>
+    <descripcion>elementum pellentesque quisque porta volutpat erat quisque erat</descripcion>
+    <Categoria>Aventura</Categoria>
+    <edad>13</edad>
+    <Idioma>English</Idioma>
+    <director>Eustace</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Angie</productor>
+    <precioCompra>20000</precioCompra>
+    <precioRenta>15000</precioRenta>
+    <duracion>01:50:00</duracion>
+    <ditribuidor>Warner</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>2 Fast 2 Furious (Fast and the Furious 2, The)</nombre>
+    <descripcion>ridiculus mus vivamus vestibulum sagittis sapien cum sociis</descripcion>
+    <Categoria>Aventura</Categoria>
+    <edad>18</edad>
+    <Idioma>Espanol</Idioma>
+    <director>Tanny</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Rance</productor>
+    <precioCompra>30000</precioCompra>
+    <precioRenta>5000</precioRenta>
+    <duracion>01:00:00</duracion>
+    <ditribuidor>Warner</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Broken Kingdom</nombre>
+    <descripcion>maecenas leo odio condimentum id luctus nec molestie</descripcion>
+    <Categoria>Documental</Categoria>
+    <edad>18</edad>
+    <Idioma>Francais</Idioma>
+    <director>Fabiano</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Mickie</productor>
+    <precioCompra>10000</precioCompra>
+    <precioRenta>5000</precioRenta>
+    <duracion>01:50:00</duracion>
+    <ditribuidor>Fox</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Goodbye to Language 3D</nombre>
+    <descripcion>convallis duis consequat dui nec nisi volutpat eleifend donec</descripcion>
+    <Categoria>Drama</Categoria>
+    <edad>15</edad>
+    <Idioma>Portugues</Idioma>
+    <director>Morrie</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Brad</productor>
+    <precioCompra>10000</precioCompra>
+    <precioRenta>15000</precioRenta>
+    <duracion>01:00:00</duracion>
+    <ditribuidor>Warner</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>The Appointments of Dennis Jennings</nombre>
+    <descripcion>et ultrices posuere cubilia curae nulla dapibus dolor</descripcion>
+    <Categoria>Comedia</Categoria>
+    <edad>18</edad>
+    <Idioma>Francais</Idioma>
+    <director>Flem</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Anstice</productor>
+    <precioCompra>10000</precioCompra>
+    <precioRenta>10000</precioRenta>
+    <duracion>02:00:00</duracion>
+    <ditribuidor>Paramount</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Torrente, el brazo tonto de la ley</nombre>
+    <descripcion>donec ut dolor morbi vel</descripcion>
+    <Categoria>Drama</Categoria>
+    <edad>18</edad>
+    <Idioma>English</Idioma>
+    <director>Nathan</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Orran</productor>
+    <precioCompra>30000</precioCompra>
+    <precioRenta>15000</precioRenta>
+    <duracion>02:04:00</duracion>
+    <ditribuidor>Fox</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Riders of the Purple Sage</nombre>
+    <descripcion>vestibulum proin eu mi nulla</descripcion>
+    <Categoria>Aventura</Categoria>
+    <edad>18</edad>
+    <Idioma>Espanol</Idioma>
+    <director>Jamison</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Dianne</productor>
+    <precioCompra>10000</precioCompra>
+    <precioRenta>10000</precioRenta>
+    <duracion>02:04:00</duracion>
+    <ditribuidor>Paramount</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Hunchback, The</nombre>
+    <descripcion>metus aenean fermentum donec ut mauris eget massa tempor</descripcion>
+    <Categoria>Comedia</Categoria>
+    <edad>18</edad>
+    <Idioma>Espanol</Idioma>
+    <director>Rolph</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Quinta</productor>
+    <precioCompra>20000</precioCompra>
+    <precioRenta>10000</precioRenta>
+    <duracion>01:00:00</duracion>
+    <ditribuidor>Paramount</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Cabin Fever: Patient Zero</nombre>
+    <descripcion>donec semper sapien a libero nam dui proin</descripcion>
+    <Categoria>Drama</Categoria>
+    <edad>18</edad>
+    <Idioma>Portugues</Idioma>
+    <director>Harwell</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Prescott</productor>
+    <precioCompra>30000</precioCompra>
+    <precioRenta>15000</precioRenta>
+    <duracion>01:00:00</duracion>
+    <ditribuidor>Fox</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>World According to Sesame Street, The</nombre>
+    <descripcion>nonummy maecenas tincidunt lacus at velit vivamus</descripcion>
+    <Categoria>Comedia</Categoria>
+    <edad>15</edad>
+    <Idioma>English</Idioma>
+    <director>Darrin</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Christiane</productor>
+    <precioCompra>20000</precioCompra>
+    <precioRenta>5000</precioRenta>
+    <duracion>01:50:00</duracion>
+    <ditribuidor>Fox</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Not Easily Broken</nombre>
+    <descripcion>ut tellus nulla ut erat</descripcion>
+    <Categoria>Documental</Categoria>
+    <edad>15</edad>
+    <Idioma>Portugues</Idioma>
+    <director>Lemmie</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Millie</productor>
+    <precioCompra>10000</precioCompra>
+    <precioRenta>15000</precioRenta>
+    <duracion>02:00:00</duracion>
+    <ditribuidor>Warner</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Jawbreaker</nombre>
+    <descripcion>faucibus orci luctus et ultrices posuere</descripcion>
+    <Categoria>Documental</Categoria>
+    <edad>18</edad>
+    <Idioma>English</Idioma>
+    <director>Adolphe</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Jania</productor>
+    <precioCompra>10000</precioCompra>
+    <precioRenta>10000</precioRenta>
+    <duracion>02:00:00</duracion>
+    <ditribuidor>Fox</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Poseidon Adventure, The</nombre>
+    <descripcion>ullamcorper augue a suscipit nulla elit ac nulla sed</descripcion>
+    <Categoria>Comedia</Categoria>
+    <edad>18</edad>
+    <Idioma>Francais</Idioma>
+    <director>Sigfried</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Greer</productor>
+    <precioCompra>20000</precioCompra>
+    <precioRenta>15000</precioRenta>
+    <duracion>01:50:00</duracion>
+    <ditribuidor>Paramount</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Glorious Technicolor</nombre>
+    <descripcion>posuere cubilia curae nulla dapibus</descripcion>
+    <Categoria>Drama</Categoria>
+    <edad>13</edad>
+    <Idioma>Francais</Idioma>
+    <director>Trefor</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Vitoria</productor>
+    <precioCompra>30000</precioCompra>
+    <precioRenta>10000</precioRenta>
+    <duracion>02:00:00</duracion>
+    <ditribuidor>Warner</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Jonathan Rosenbaum, Present</nombre>
+    <descripcion>condimentum curabitur in libero ut</descripcion>
+    <Categoria>Drama</Categoria>
+    <edad>15</edad>
+    <Idioma>Espanol</Idioma>
+    <director>Todd</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Uriel</productor>
+    <precioCompra>30000</precioCompra>
+    <precioRenta>15000</precioRenta>
+    <duracion>02:04:00</duracion>
+    <ditribuidor>Fox</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Belle comme la femme d'un autre</nombre>
+    <descripcion>consequat dui nec nisi volutpat eleifend donec ut dolor</descripcion>
+    <Categoria>Drama</Categoria>
+    <edad>18</edad>
+    <Idioma>Portugues</Idioma>
+    <director>Lemmy</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Lexine</productor>
+    <precioCompra>20000</precioCompra>
+    <precioRenta>15000</precioRenta>
+    <duracion>02:04:00</duracion>
+    <ditribuidor>Paramount</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Idiot Box</nombre>
+    <descripcion>scelerisque mauris sit amet eros suspendisse accumsan tortor</descripcion>
+    <Categoria>Drama</Categoria>
+    <edad>13</edad>
+    <Idioma>Francais</Idioma>
+    <director>Odie</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Freddy</productor>
+    <precioCompra>10000</precioCompra>
+    <precioRenta>15000</precioRenta>
+    <duracion>02:04:00</duracion>
+    <ditribuidor>Paramount</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Callan</nombre>
+    <descripcion>erat eros viverra eget congue eget semper rutrum nulla</descripcion>
+    <Categoria>Drama</Categoria>
+    <edad>18</edad>
+    <Idioma>Francais</Idioma>
+    <director>Elijah</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Grethel</productor>
+    <precioCompra>30000</precioCompra>
+    <precioRenta>15000</precioRenta>
+    <duracion>02:00:00</duracion>
+    <ditribuidor>Warner</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Sidestreet</nombre>
+    <descripcion>nisl duis bibendum felis sed interdum venenatis turpis enim</descripcion>
+    <Categoria>Drama</Categoria>
+    <edad>18</edad>
+    <Idioma>Espanol</Idioma>
+    <director>Irvine</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Sondra</productor>
+    <precioCompra>20000</precioCompra>
+    <precioRenta>10000</precioRenta>
+    <duracion>02:00:00</duracion>
+    <ditribuidor>Warner</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Seduced and Abandoned (Sedotta e abbandonata)</nombre>
+    <descripcion>congue eget semper rutrum nulla nunc</descripcion>
+    <Categoria>Comedia</Categoria>
+    <edad>18</edad>
+    <Idioma>Espanol</Idioma>
+    <director>Gustav</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Allie</productor>
+    <precioCompra>10000</precioCompra>
+    <precioRenta>15000</precioRenta>
+    <duracion>01:00:00</duracion>
+    <ditribuidor>Warner</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Wrinkles (Arrugas)</nombre>
+    <descripcion>integer tincidunt ante vel ipsum praesent blandit lacinia</descripcion>
+    <Categoria>Documental</Categoria>
+    <edad>18</edad>
+    <Idioma>Espanol</Idioma>
+    <director>Gaspard</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Audie</productor>
+    <precioCompra>20000</precioCompra>
+    <precioRenta>10000</precioRenta>
+    <duracion>01:50:00</duracion>
+    <ditribuidor>Warner</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Mother Carey's Chickens</nombre>
+    <descripcion>sem fusce consequat nulla nisl nunc nisl duis</descripcion>
+    <Categoria>Aventura</Categoria>
+    <edad>18</edad>
+    <Idioma>English</Idioma>
+    <director>Merwyn</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Reamonn</productor>
+    <precioCompra>10000</precioCompra>
+    <precioRenta>10000</precioRenta>
+    <duracion>01:00:00</duracion>
+    <ditribuidor>Fox</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Kiss of Death</nombre>
+    <descripcion>mi sit amet lobortis sapien sapien non</descripcion>
+    <Categoria>Comedia</Categoria>
+    <edad>13</edad>
+    <Idioma>Portugues</Idioma>
+    <director>Aldrich</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Ingeberg</productor>
+    <precioCompra>30000</precioCompra>
+    <precioRenta>5000</precioRenta>
+    <duracion>02:04:00</duracion>
+    <ditribuidor>Fox</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Beauty #2</nombre>
+    <descripcion>nulla pede ullamcorper augue a suscipit nulla elit</descripcion>
+    <Categoria>Documental</Categoria>
+    <edad>13</edad>
+    <Idioma>Portugues</Idioma>
+    <director>Gearard</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Egon</productor>
+    <precioCompra>30000</precioCompra>
+    <precioRenta>5000</precioRenta>
+    <duracion>02:00:00</duracion>
+    <ditribuidor>Paramount</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Girl of the Golden West</nombre>
+    <descripcion>risus dapibus augue vel accumsan tellus</descripcion>
+    <Categoria>Aventura</Categoria>
+    <edad>15</edad>
+    <Idioma>Portugues</Idioma>
+    <director>Yanaton</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Theo</productor>
+    <precioCompra>10000</precioCompra>
+    <precioRenta>5000</precioRenta>
+    <duracion>01:00:00</duracion>
+    <ditribuidor>Paramount</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Big Pun: The Legacy</nombre>
+    <descripcion>volutpat eleifend donec ut dolor morbi vel lectus in</descripcion>
+    <Categoria>Documental</Categoria>
+    <edad>13</edad>
+    <Idioma>Francais</Idioma>
+    <director>Briano</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Adrienne</productor>
+    <precioCompra>30000</precioCompra>
+    <precioRenta>10000</precioRenta>
+    <duracion>02:04:00</duracion>
+    <ditribuidor>Warner</ditribuidor>
+  </Pelicula>
+  <Pelicula>
+    <nombre>Marley &amp; Me: The Puppy Years</nombre>
+    <descripcion>in ante vestibulum ante ipsum primis in faucibus orci</descripcion>
+    <Categoria>Drama</Categoria>
+    <edad>18</edad>
+    <Idioma>English</Idioma>
+    <director>Eustace</director>
+    <fecha>SYSDATE</fecha>
+    <productor>Juline</productor>
+    <precioCompra>20000</precioCompra>
+    <precioRenta>10000</precioRenta>
+    <duracion>01:00:00</duracion>
+    <ditribuidor>Fox</ditribuidor>
+  </Pelicula>
+</Peliculas>
+
+
+---Distribuidores
+<Distribuidores>
+  <Distribuidor>
+    <Nombre>Janus Films</Nombre>
+  </Distribuidor>
+  <Distribuidor>
+    <Nombre>Kino Lorber</Nombre>
+  </Distribuidor>
+  <Distribuidor>
+    <Nombre>Warner</Nombre>
+  </Distribuidor>
+  <Distribuidor>
+    <Nombre>Fox</Nombre>
+  </Distribuidor>
+  <Distribuidor>
+    <Nombre>Vertical Entertainment</Nombre>
+  </Distribuidor>
+  <Distribuidor>
+    <Nombre>Cineverse</Nombre>
+  </Distribuidor>
+  <Distribuidor>
+    <Nombre>Neon (empresa)</Nombre>
+  </Distribuidor>
+  <Distribuidor>
+    <Nombre>Picturehouse</Nombre>
+  </Distribuidor>
+</Distribuidores>
