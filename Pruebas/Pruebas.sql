@@ -172,5 +172,6 @@ BEGIN
     PC_Operacion_Compra.Adicionar('Samuel', 'Cloverfield', 150000); 
     PC_Operacion_Compra.Adicionar('Samuel', 'Lord Of The Rings', 800000); 
     PC_Operacion_Compra.Adicionar('Samuel', 'The Godfather', 800000); 
-    PC_Operacion_Compra.Adicionar('Samuel', 'The Batman', 400000); 
+    PC_Operacion_Compra.Adicionar('Samuel', 'The Batman', 400000);
+    PC_Bibliotecas.Adicionar('Samuel', 'Matt Reeves'); 
 END;
