@@ -1,97 +1,109 @@
-## Estructura y Restricciones Declarativas
+# EZFlix – Movie & Series Distribution System
 
-### Persistencia
+EZFlix is a digital platform for the distribution of movies and series, allowing users to **purchase** or **rent** audiovisual content through a structured, secure, and scalable system.
 
-#### Tablas:
-Creacion de tablas con base a nuestra idea de negocio
+The system supports personalized user libraries, secure transactions, role-based access, legal content management, and automated revenue tracking, replicating the core functionalities of a commercial digital streaming service.
 
-#### Atributos:
-Definicion de restricciones para un unico atributo
+## Business Model Overview
 
-#### Primarias:
-Definicion de clases primarias
+EZFlix enables:
 
-#### Unicas:
-Definicion de claves unicas
+- Permanent **purchases** of movies and series added to the user's library.
+- Time-limited **rentals** with access restrictions.
+- Individual episode management for series.
+- Role-based **access control** for administrative functions.
+- Tracking of **financial transactions**, including payment methods and revenue.
+- Management of **content distribution rights** and legal requirements through dedicated entities.
+- Full **traceability** through operational logs and audit mechanisms.
+- Automation of critical actions such as income registration and integrity validation.
 
-#### Foraneas:
-Definicion de claves foraneas
+The business model is supported by a modular and normalized data schema, ensuring maintainability and extensibility.
 
-#### xTablas:
-Elimina todas las tablas creadas con anterioridad
 
-#### Consultas:
-Consultas propuestas en SQL para verificar la integridad de la tabla
+## Database Structure
 
-### Pruebas
+The physical data model is composed of the following main components:
 
-#### PoblarOK
-Ingreso de datos correctos. (Sin automatización)
+### Users & Roles
+- **Users**: Stores personal and contact information.
+- **Accounts**: Handles authentication and user credentials.
+- **SystemActors**: Assigns roles to accounts for access control and permissions.
 
-#### PoblarNoOK
-Intento de ingreso de datos erroneos protegidos por los tipos de datos, definición de nulidades y claves primarias, únicas y foraneas.
+### Content Management
+- **Movies**: Metadata and classification for individual films.
+- **Series**: High-level data structure for serialized content.
+- **Episodes**: Linked to their respective series with attributes such as duration and release order.
+- **Distributors**: Entities responsible for content licensing and partnerships.
+- **ContentControllers**: Represent editorial or legal responsibilities tied to each content unit.
 
-#### XPoblar
-Eliminación de datos
+### User Libraries
+- **Libraries**: Each user is linked to a personalized library.
+- **LibraryMovies / LibrarySeries**: Associative tables for storing purchased or rented items per user.
 
-## Restricciones Declarativas, Procedimentales y Automatización:
+### Transactions & Revenue
+- **Operations**: Logs all user transactions, including purchases and rentals.
+- **Purchases / Rentals**: Separate transaction types with specific constraints and triggers.
+- **PaymentMethods**: Stores and validates payment instruments linked to operations.
+- **Revenue**: View that automates revenue calculation for financial monitoring.
+- **Audit**: Operational logs for monitoring and accountability.
 
-#### Tuplas:
-Definición de las restricciones que implican más de un atributo
 
-#### Acciones:
-Definición de las acciones de referencia
+## Modules
 
-#### Disparadores:
-Definición de disparadores
+### Persistence
 
-#### xDisparadores:
-Eliminación de disparadores
+- Core tables for movies, series, users, accounts, libraries, and transactions.
+- Constraints on data types, nullability, and foreign key relations.
+- Unique constraints and primary keys to ensure integrity.
+- Referential scripts (`xTables`) to drop the entire schema if needed.
+- SQL queries for referential checks and integrity tests.
 
-## Indices y Vistas
+### Testing
 
-#### Indices
-Definición de índices
+- `PopulateOK`: Inserts valid and coherent data entries.
+- `PopulateNotOK`: Inserts invalid data to test constraints.
+- `xPopulate`: Cleans up data for testing cycles.
 
-#### Vistas
-Definición de vistas
+### Constraints & Automation
 
-#### XIndicesVistas
-Eliminación de vistas e indices
+- Multi-attribute validations across entities.
+- Triggers for automatic behavior, such as income generation or content access.
+- Referential actions (cascade, restrict) on update/delete.
+- Trigger removal scripts (`xTriggers`).
 
-## Componentes
+### Indexes & Views
 
-#### CRUDE
-Especificación de los paquetes de componentes
+- Indexes on commonly queried fields to optimize performance.
+- Views for simplified reporting and income calculations.
+- Scripts for cleaning views and indexes (`xIndexesViews`).
 
-#### CRUDI
-Implementación de los paquetes 
+### CRUD Components
 
-#### XCRUD
-Eliminación de los paquetes
+- `CRUDE`: Declarative component interfaces (Create, Read, Update, Delete).
+- `CRUDI`: Implementations of the above components.
+- `xCRUD`: Cleanup scripts for component removal.
 
-## Seguridad
+### Security
 
-### Persistencia
+- Role definition and user-role associations.
+- Permissions granted and revoked per role.
+- Scripts to deploy and remove security settings (`Security`, `xSecurity`).
+- `SecurityOK`: Tests access control for different user roles.
 
-#### ActoresE
-Especificación de los paquetes de actores
 
-#### ActoresI
-Implementación de dichos paquetes
+## Final Testing
 
-#### Seguridad
-Definición de roles y permisos
+Includes complete functional stories submitted by team members to validate business logic from the user perspective.
 
-#### XSeguridad
-Eliminación de paquetes de actores, roles y permisos.
 
-### Pruebas
+## Notes
 
-#### SeguridadOk
-Ingreso de datos correctos usando los procedimientos de los paquetes
+EZFlix’s database design is modular, secure, and aligned with the core needs of a real-world digital distribution platform. It facilitates seamless user experiences, content acquisition, legal compliance, and administrative oversight. Each component is built to reflect the operational demands of a professional streaming service, allowing further scalability and integration with future development cycles.
 
-## Pruebas
+## Built With
+* [SQL Developer](https://www.oracle.com/database/sqldeveloper/)
+* [Astah Community Edition](https://astah.net/)
 
-### Pruebas
-Dos historias complementarias (Una por miembro del equipo).
+## Authors
+* **Santiago Botero** - [LePeanutButter](https://github.com/LePeanutButter)
+* **Jacobo Diaz** - [Jacob202122](https://github.com/Jacob202122)
